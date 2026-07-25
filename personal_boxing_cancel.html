@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>ONE BALANCE BOXING — パーソナルボクシング体験予約キャンセル</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--red:#C8102E;--red2:#a30d24;--red-bg:#fdf1f1;--gold:#c9a227;--line:#06C755}
+body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color:#222;min-height:100vh}
+.app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh}
+.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold)}
+.hd-logo{height:38px;border-radius:8px;background:#fff;padding:4px;display:block;margin:0 auto}
+.logo-sub{font-size:11px;color:#f5dfa0;letter-spacing:.2em;margin-top:8px;font-weight:700}
+.body{padding:20px}
+.title{font-size:18px;color:#222;font-weight:900;margin-bottom:6px}
+.subtitle{font-size:12px;color:#888;margin-bottom:24px;line-height:1.6}
+.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px}
+.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px}
+.info-box{background:var(--red-bg);border-radius:10px;padding:14px 16px}
+.info-row{display:flex;justify-content:space-between;align-items:flex-start;padding:10px 0;border-bottom:1px dashed #f3d0d0;gap:10px}
+.info-row:last-child{border-bottom:none}
+.info-label{font-size:11px;color:#888;flex-shrink:0}
+.info-value{font-size:13px;color:#222;text-align:right;font-weight:700;word-break:break-all}
+.warn-box{background:#fff3f3;border:1.5px solid var(--red);border-radius:10px;padding:14px;margin-bottom:14px;font-size:12px;color:var(--red2);line-height:1.7}
+.warn-box strong{display:block;font-size:13px;margin-bottom:4px}
+.line-box{background:#f0faf3;border:1.5px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px}
+.line-box-title{font-size:12px;color:var(--line);font-weight:700;margin-bottom:8px}
+.line-box-text{font-size:11px;color:#555;line-height:1.6;margin-bottom:10px}
+.line-btn{display:block;width:100%;padding:12px;background:var(--line);color:#fff;border:none;border-radius:10px;font-size:13px;font-weight:700;text-align:center;text-decoration:none;font-family:'Noto Serif JP','M PLUS Rounded 1c',serif}
+.btn{width:100%;padding:14px;border:none;border-radius:14px;font-size:14px;font-weight:900;cursor:pointer;font-family:'M PLUS Rounded 1c',sans-serif;letter-spacing:.05em;margin-bottom:10px}
+.btn-cancel{background:var(--red);color:#fff}
+.btn-back{background:var(--red-bg);color:var(--red2)}
+.btn:disabled{opacity:0.5;cursor:not-allowed}
+.loading{text-align:center;padding:32px;font-size:13px;color:#aaa}
+.error-state{background:#fff3f3;border:1.5px solid var(--red);border-radius:10px;padding:20px;text-align:center;color:var(--red2);font-size:13px;line-height:1.6;margin-bottom:14px}
+.success-state{text-align:center;padding:40px 20px}
+.success-icon{font-size:60px;margin-bottom:16px}
+.success-msg{font-size:16px;color:#222;font-weight:900;margin-bottom:8px}
+.success-sub{font-size:12px;color:#888;line-height:1.6;margin-bottom:20px}
+.back-link{display:inline-block;margin-top:10px;padding:10px 24px;background:var(--red-bg);color:var(--red2);border-radius:20px;font-size:12px;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hd">
+<img class="hd-logo" src="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg" alt="ONE BALANCE BOXING GYM">
+<div class="logo-sub">PERSONAL BOXING</div>
+</div>
+<div class="body">
+
+<div id="loading-area" class="loading">予約情報を確認中...</div>
+
+<div id="form-area" style="display:none">
+<div class="title">体験予約キャンセル</div>
+<div class="subtitle">以下の予約内容でキャンセルを受け付けます。内容をご確認ください。</div>
+
+<div class="card">
+<div class="card-title">予約内容</div>
+<div class="info-box">
+<div class="info-row">
+<span class="info-label">お名前</span>
+<span class="info-value" id="info-name">-</span>
+</div>
+<div class="info-row">
+<span class="info-label">担当トレーナー</span>
+<span class="info-value" id="info-trainer">-</span>
+</div>
+<div class="info-row">
+<span class="info-label">予約日時</span>
+<span class="info-value" id="info-date">-</span>
+</div>
+</div>
+</div>
+
+<div class="warn-box">
+<strong>⚠ キャンセル前にご確認ください</strong>
+・キャンセルは予約日時の24時間前まで受け付けます<br>
+・24時間を過ぎている場合は下記LINEからご連絡ください<br>
+・一度キャンセルすると元に戻せません
+</div>
+
+<div class="line-box">
+<div class="line-box-title">💬 24時間を過ぎた場合</div>
+<div class="line-box-text">キャンセル受付期限を過ぎた場合は、下記の公式LINEからお気軽にお問い合わせください。</div>
+<a href="https://lin.ee/NKUqyoV" target="_blank" class="line-btn">公式LINEで問い合わせる</a>
+</div>
+
+<button class="btn btn-cancel" id="cancel-btn" onclick="doCancel()">この予約をキャンセルする</button>
+<a href="javascript:history.back()" class="btn btn-back" style="display:block;text-align:center;text-decoration:none;padding:14px">戻る</a>
+</div>
+
+<div id="error-area" style="display:none">
+<div class="error-state" id="error-msg">予約が見つかりません。</div>
+<div class="line-box">
+<div class="line-box-title">💬 お問い合わせはこちら</div>
+<div class="line-box-text">ご不明な点がございましたら、公式LINEからお気軽にお問い合わせください。</div>
+<a href="https://lin.ee/NKUqyoV" target="_blank" class="line-btn">公式LINEで問い合わせる</a>
+</div>
+</div>
+
+<div id="success-area" class="success-state" style="display:none">
+<div class="success-icon">✓</div>
+<div class="success-msg">キャンセルを承りました</div>
+<div class="success-sub">ご登録のメールアドレスに<br>キャンセル確認メールを送信しました。<br><br>またのご利用を<br>心よりお待ちしております。</div>
+<a href="https://onebalanceyume-beep.github.io/personal-BOXING/personal_boxing_taiken_yoyaku.html" class="back-link">体験予約ページへ</a>
+</div>
+
+</div>
+</div>
+<script>
+// ★ HTML側と同じGAS_URLをここにも入れてください
+const GAS_URL='https://script.google.com/macros/s/AKfycbxb5Sl1UkHNcIXEl_phlLILFFrAyqzjlJK95FFiZeZCeYTHtYgoyby5lRcOEFDoqrX6og/exec';
+
+function getToken(){
+const params=new URLSearchParams(window.location.search);
+return params.get('token');
+}
+
+async function init(){
+const token=getToken();
+if(!token){showError('キャンセル用のURLが正しくありません。');return;}
+try{
+const res=await fetch(GAS_URL+'?action=getReservation&token='+encodeURIComponent(token)+'&t='+Date.now(),{method:'GET',mode:'cors'});
+const data=await res.json();
+if(!data.success){showError(data.error||'予約情報が見つかりませんでした。');return;}
+if(data.status==='キャンセル'){showError('この予約はすでにキャンセル済みです。');return;}
+document.getElementById('loading-area').style.display='none';
+document.getElementById('form-area').style.display='block';
+document.getElementById('info-name').textContent=data.name||'-';
+document.getElementById('info-trainer').textContent=data.trainer||'-';
+document.getElementById('info-date').textContent=data.slotLabel||'-';
+}catch(err){
+showError('通信エラーが発生しました。時間をおいて再度お試しください。');
+}
+}
+
+function showError(msg){
+document.getElementById('loading-area').style.display='none';
+document.getElementById('form-area').style.display='none';
+document.getElementById('error-area').style.display='block';
+document.getElementById('error-msg').textContent=msg;
+}
+
+async function doCancel(){
+if(!confirm('本当にキャンセルしますか？\nこの操作は取り消せません。'))return;
+const btn=document.getElementById('cancel-btn');
+btn.disabled=true;btn.textContent='キャンセル処理中...';
+const token=getToken();
+try{
+const res=await fetch(GAS_URL+'?action=cancel&token='+encodeURIComponent(token)+'&t='+Date.now(),{method:'GET',mode:'cors'});
+const data=await res.json();
+if(data.success){
+document.getElementById('form-area').style.display='none';
+document.getElementById('success-area').style.display='block';
+}else{
+alert('キャンセルできませんでした：\n'+(data.error||'不明なエラー')+'\n\n24時間を過ぎている場合は公式LINEからご連絡ください。');
+btn.disabled=false;btn.textContent='この予約をキャンセルする';
+}
+}catch(err){
+alert('通信エラーが発生しました。時間をおいて再度お試しください。');
+btn.disabled=false;btn.textContent='この予約をキャンセルする';
+}
+}
+
+init();
+</script>
+</body>
+</html>
