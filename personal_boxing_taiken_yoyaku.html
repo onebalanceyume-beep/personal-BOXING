@@ -8,16 +8,16 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
---red:#DB444C;--red2:#c0343c;--red-bg:#fbeaec;
+--red:#C8102E;--red2:#a30d24;--red-bg:#fdf1f1;
 --gold:#c9a227;--gold-l:#e6cf7a;
 --navy:#16213e;--navy2:#0e1830;--navy-text:#f0ead6;
 --btn-gradient:linear-gradient(135deg,var(--red),var(--gold));
 }
-body{font-family:'M PLUS Rounded 1c',sans-serif;background:#fdf6f6;color:#222;min-height:100vh;transition:background .3s}
+body{font-family:'M PLUS Rounded 1c',sans-serif;background:#fff;color:#222;min-height:100vh;transition:background .3s}
 body[data-trainer="nagao"]{background:var(--navy2);--btn-gradient:linear-gradient(135deg,var(--navy),var(--gold))}
 .app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;transition:background .3s}
 body[data-trainer="nagao"] .app{background:var(--navy2)}
-.hd{padding:16px 20px;background:linear-gradient(135deg,var(--red),var(--red2));text-align:center;border-bottom:3px solid var(--gold);transition:all .3s}
+.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold);transition:all .3s}
 body[data-trainer="nagao"] .hd{background:var(--navy);border-bottom-color:var(--gold)}
 .hd-logo{height:38px;border-radius:8px;background:#fff;padding:4px;display:block;margin:0 auto}
 .logo-sub{font-size:11px;color:var(--gold-l);letter-spacing:.2em;margin-top:8px;font-weight:700}
@@ -33,7 +33,7 @@ body[data-trainer="nagao"] .trainer-step{color:var(--gold)}
 body[data-trainer="nagao"] .trainer-title{color:var(--gold-l)}
 .trainer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .trainer-btn{padding:18px 10px;border:1.5px solid var(--gold);border-radius:12px;background:#fafafa;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
-.trainer-btn.selected-inada{background:linear-gradient(135deg,var(--red-bg),#fff);border-color:var(--red);box-shadow:0 2px 8px rgba(219,68,76,.2)}
+.trainer-btn.selected-inada{background:linear-gradient(135deg,var(--red-bg),#fff);border-color:var(--red);box-shadow:0 2px 8px rgba(200,16,46,.25)}
 .trainer-btn.selected-nagao{background:linear-gradient(135deg,var(--navy),var(--navy2));border-color:var(--gold);color:var(--gold-l);box-shadow:0 2px 8px rgba(201,162,39,.3)}
 .trainer-name{font-size:15px;font-weight:900;color:#aaa}
 .trainer-btn.selected-inada .trainer-name{color:var(--red2)}
@@ -42,12 +42,12 @@ body[data-trainer="nagao"] .trainer-title{color:var(--gold-l)}
 .form-content{opacity:.3;pointer-events:none;transition:opacity .3s}
 .form-content.active{opacity:1;pointer-events:auto}
 
-.card{background:var(--red-bg);border-radius:16px;padding:20px;margin-bottom:16px;transition:background .3s}
+.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px;transition:all .3s}
 body[data-trainer="nagao"] .card{background:var(--navy);border:1px solid var(--gold)}
-.card-title{font-size:11px;color:var(--red2);letter-spacing:.1em;margin-bottom:16px;font-weight:900;transition:color .3s}
-body[data-trainer="nagao"] .card-title{color:var(--gold)}
+.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px;transition:all .3s}
+body[data-trainer="nagao"] .card-title{color:var(--gold);background:none;padding:0;display:block}
 
-.mochimono-list{background:#fff;border-radius:10px;padding:14px 16px;transition:background .3s}
+.mochimono-list{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
 body[data-trainer="nagao"] .mochimono-list{background:var(--navy2)}
 .mochimono-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;color:#444;border-bottom:1px dashed var(--red-bg)}
 body[data-trainer="nagao"] .mochimono-item{color:var(--navy-text);border-bottom-color:#26355c}
@@ -58,21 +58,21 @@ body[data-trainer="nagao"] .mochimono-item::before{background:var(--gold)}
 .mochimono-note{font-size:10px;color:var(--red2);font-weight:700;margin-left:4px}
 body[data-trainer="nagao"] .mochimono-note{color:var(--gold)}
 
-.price-box{background:#fff;border-radius:10px;padding:16px;text-align:center;margin-bottom:12px;transition:background .3s}
+.price-box{background:var(--red);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px;transition:background .3s}
 body[data-trainer="nagao"] .price-box{background:var(--navy2)}
-.price-label{font-size:11px;color:#888;margin-bottom:6px;letter-spacing:.08em}
+.price-label{font-size:11px;color:rgba(255,255,255,.85);margin-bottom:6px;letter-spacing:.08em}
 body[data-trainer="nagao"] .price-label{color:var(--gold-l)}
-.price-value{font-size:32px;color:var(--red2);font-weight:900;line-height:1;transition:color .3s}
+.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1;transition:color .3s}
 body[data-trainer="nagao"] .price-value{color:var(--gold)}
 .price-yen{font-size:18px;margin-right:2px}
-.price-sub{font-size:10px;color:#aaa;margin-top:4px}
+.price-sub{font-size:10px;color:rgba(255,255,255,.75);margin-top:4px}
 
-.payment-box{background:#fff;border-radius:10px;padding:14px 16px;transition:background .3s}
+.payment-box{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
 body[data-trainer="nagao"] .payment-box{background:var(--navy2)}
 .payment-title{font-size:10px;color:#888;font-weight:700;margin-bottom:10px;letter-spacing:.06em}
 body[data-trainer="nagao"] .payment-title{color:var(--gold-l)}
 .payment-grid{display:flex;flex-wrap:wrap;gap:6px}
-.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:var(--red-bg);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700;transition:all .3s}
+.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--red);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700;transition:all .3s}
 body[data-trainer="nagao"] .payment-tag{background:var(--navy);color:var(--gold)}
 .payment-tag-icon{font-size:12px}
 
@@ -90,7 +90,7 @@ body[data-trainer="nagao"] .payment-tag{background:var(--navy);color:var(--gold)
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:10px;color:#888;font-weight:700}
 body[data-trainer="nagao"] .fg label{color:var(--gold-l)}
-.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(219,68,76,.2);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none;transition:all .3s}
+.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(200,16,46,.25);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none;transition:all .3s}
 body[data-trainer="nagao"] .fg input{background:var(--navy2);border-color:var(--gold);color:var(--navy-text)}
 .fg input[type=date]{min-height:44px;display:block}
 .fg-note{font-size:10px;color:var(--red2);margin-top:4px;line-height:1.5}
