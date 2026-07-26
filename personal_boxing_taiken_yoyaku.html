@@ -76,17 +76,6 @@ body[data-trainer="nagao"] .payment-title{color:var(--gold-l)}
 body[data-trainer="nagao"] .payment-tag{background:var(--navy);color:var(--gold)}
 .payment-tag-icon{font-size:12px}
 
-.pkg-card{display:none}
-.pkg-card.show{display:block}
-.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
-.pkg-btn{padding:10px 4px;border:1.5px solid var(--gold);border-radius:10px;background:var(--navy2);color:var(--gold-l);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
-.pkg-btn.selected{background:linear-gradient(135deg,var(--navy),var(--gold));color:#fff;border-color:transparent}
-.pkg-result{background:#fff;border:1.5px solid var(--gold);border-radius:10px;padding:12px;text-align:center;margin-bottom:12px}
-.pkg-result .lbl{font-size:11px;color:var(--red2);font-weight:700}
-.pkg-result .tot{font-size:22px;font-weight:900;color:var(--red2)}
-.pkg-result .unit{font-size:10px;color:#888}
-.pkg-note{font-size:10px;color:var(--gold-l);line-height:1.8;background:var(--navy2);border-radius:8px;padding:10px}
-
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:10px;color:#888;font-weight:700}
 body[data-trainer="nagao"] .fg label{color:var(--gold-l)}
@@ -204,27 +193,6 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 </div>
 </div>
 
-<!-- 0.6 長尾指名：回数券参考価格（本予約時にご案内） -->
-<div class="card pkg-card" id="pkg-card">
-<div class="card-title">本予約 回数券（参考価格）</div>
-<div class="pkg-grid" id="pkg-grid">
-<button type="button" class="pkg-btn selected" data-n="1" data-total="11000" data-unit="11000" onclick="selectPackage(this)">1回</button>
-<button type="button" class="pkg-btn" data-n="3" data-total="27600" data-unit="9200" onclick="selectPackage(this)">3回</button>
-<button type="button" class="pkg-btn" data-n="6" data-total="46200" data-unit="7700" onclick="selectPackage(this)">6回</button>
-</div>
-<div class="pkg-result">
-<div class="lbl" id="pkg-label">1回のみ</div>
-<div class="tot" id="pkg-total">¥11,000</div>
-<div class="unit" id="pkg-unit">1回あたり ¥11,000</div>
-</div>
-<div class="pkg-note">
-・ペア利用は1回あたり¥1,500引き<br>
-・有効期限：ご購入から6ヶ月<br>
-・回数券はご本人限定、他の方とのシェアはご遠慮ください<br>
-・こちらは体験予約とは別の本予約時のご案内価格です
-</div>
-</div>
-
 <!-- 1. 基本情報 -->
 <div class="card">
 <div class="card-title">基本情報</div>
@@ -311,9 +279,7 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 ■ 原則として体験は1度だけとなります。<br>
 ■ 体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。<br>
 ■ キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。<br>
-■ 本予約の回数券は他の方とのシェア・譲渡はご遠慮ください。<br>
-■ ペアでのご利用は1回あたり¥1,500の割引です。<br>
-■ 回数券の有効期限はご購入日から6ヶ月です。
+■ ペアでのご利用は体験も1回あたり¥500引きです。
 </div>
 <div class="agree-row">
 <input type="checkbox" id="agree">
@@ -379,24 +345,13 @@ btnN.classList.remove('selected-inada','selected-nagao');
 if(trainer==='nagao'){
 body.setAttribute('data-trainer','nagao');
 btnN.classList.add('selected-nagao');
-document.getElementById('pkg-card').classList.add('show');
 }else{
 body.removeAttribute('data-trainer');
 btnI.classList.add('selected-inada');
-document.getElementById('pkg-card').classList.remove('show');
 }
 document.getElementById('price-value').textContent=formatYen(PRICES[trainer]);
 document.getElementById('form-content').classList.add('active');
 if(document.getElementById('date').value) loadSlots();
-}
-
-function selectPackage(btn){
-document.querySelectorAll('.pkg-btn').forEach(function(b){ b.classList.remove('selected'); });
-btn.classList.add('selected');
-const n=btn.getAttribute('data-n');
-document.getElementById('pkg-label').textContent=(n==='1'?'1回のみ':n+'回セット');
-document.getElementById('pkg-total').textContent='¥'+formatYen(Number(btn.getAttribute('data-total')));
-document.getElementById('pkg-unit').textContent='1回あたり ¥'+formatYen(Number(btn.getAttribute('data-unit')));
 }
 
 function selectRadio(key,val,btn){
@@ -421,10 +376,12 @@ if(idx>=0){arr.splice(idx,1);btn.classList.remove('selected');}
 else{arr.push(val);btn.classList.add('selected');}
 }
 
+let loadSlotsToken=0;
 async function loadSlots(){
 if(!selectedTrainer)return;
 const date=document.getElementById('date').value;
 if(!date)return;
+const myToken=++loadSlotsToken;
 const sel=new Date(date+'T00:00:00');
 const tod=new Date();tod.setHours(0,0,0,0);
 const grid=document.getElementById('time-grid');
@@ -455,16 +412,18 @@ errMsg.style.display='none';
 try{
 const res=await fetch(GAS_URL+'?action=getBoxingTaikenSlots&date='+date+'&trainer='+selectedTrainer+'&t='+Date.now(),{method:'GET',mode:'cors'});
 const data=await res.json();
+if(myToken!==loadSlotsToken)return; // 後から発生した呼び出しがあれば、古い結果は破棄する
 loading.style.display='none';
 if(data.error){errMsg.textContent=data.error;errMsg.style.display='block';return;}
 if(!data.slots||data.slots.length===0){errMsg.textContent='この日は空き枠がありません。別の日をお選びください。';errMsg.style.display='block';return;}
+grid.innerHTML='';
 data.slots.forEach(slot=>{
 const btn=document.createElement('button');
 btn.className='time-btn';
 btn.type='button';
 
 if(slot.full){
-btn.textContent=slot.label+'\n満員';
+btn.textContent=slot.label+'\n【満】';
 btn.style.cssText='background:#ddd;color:#aaa;border-color:#ccc;cursor:not-allowed;font-size:11px;white-space:pre-line;opacity:0.7;';
 btn.disabled=true;
 }else{
