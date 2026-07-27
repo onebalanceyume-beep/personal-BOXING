@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>ONE BALANCE BOXING — パーソナルキックボクササイズ予約</title>
+<link rel="apple-touch-icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
+<link rel="icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#f1c1c5">
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--pink:#f1c1c5;--pink-bg:#fdf1f3;
+--brown:#3f2f1f;--brown-l:#8a6f5c;
+--selected-gradient:linear-gradient(135deg,#5BB9CD,#DB444C);
+}
+body{font-family:'M PLUS Rounded 1c',sans-serif;background:#fffaf9;color:#3f2f1f;min-height:100vh}
+.app{max-width:480px;margin:0 auto;background:#fffaf9;min-height:100vh}
+.hd{padding:16px 20px;background:var(--pink);text-align:center;border-bottom:3px solid var(--brown)}
+.hd-logo{height:38px;border-radius:8px;background:#fff;padding:4px;display:block;margin:0 auto}
+.logo-sub{font-size:11px;color:var(--brown);letter-spacing:.2em;margin-top:8px;font-weight:700}
+.body{padding:20px}
+.title{font-size:18px;color:#222;font-weight:900;margin-bottom:12px}
+
+.trainer-badge{display:inline-flex;align-items:center;gap:6px;background:var(--pink-bg);border:1.5px solid var(--pink);border-radius:20px;padding:6px 14px;font-size:12px;font-weight:700;color:var(--brown);margin-bottom:16px}
+
+.card{background:#fff;border:1.5px solid var(--pink);border-radius:16px;padding:20px;margin-bottom:16px}
+.card-title{font-size:11px;color:#fff;background:var(--brown);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px}
+
+.mochimono-list{background:var(--pink-bg);border-radius:10px;padding:14px 16px}
+.mochimono-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;color:#444;border-bottom:1px dashed #f3dcdf}
+.mochimono-item:last-child{border-bottom:none}
+.mochimono-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--brown);flex-shrink:0}
+.mochimono-text{flex:1;line-height:1.5}
+.mochimono-note{font-size:10px;color:var(--brown-l);font-weight:700;margin-left:4px}
+
+.price-box{background:var(--brown);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px}
+.price-label{font-size:11px;color:rgba(255,255,255,.85);margin-bottom:6px;letter-spacing:.08em}
+.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1}
+.price-yen{font-size:18px;margin-right:2px}
+.price-sub{font-size:10px;color:rgba(255,255,255,.75);margin-top:4px}
+
+.payment-box{background:var(--pink-bg);border-radius:10px;padding:14px 16px}
+.payment-title{font-size:10px;color:#888;font-weight:700;margin-bottom:10px;letter-spacing:.06em}
+.payment-grid{display:flex;flex-wrap:wrap;gap:6px}
+.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--pink);border-radius:6px;font-size:11px;color:var(--brown);font-weight:700}
+.payment-tag-icon{font-size:12px}
+
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.fg label{font-size:10px;color:#888;font-weight:700}
+.fg input{font-size:14px;padding:10px 14px;border:1.5px solid #f3dcdf;border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none}
+.fg input[type=date]{min-height:44px;display:block}
+.fg-note{font-size:10px;color:var(--brown-l);margin-top:4px;line-height:1.5}
+
+.choice-label{font-size:10px;color:#888;font-weight:700;margin-bottom:8px}
+
+.radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.radio-btn{padding:10px 6px;border:1.5px solid var(--pink);border-radius:10px;background:#fff;color:var(--brown);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+.radio-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent;transform:scale(1.06);box-shadow:0 4px 12px rgba(219,68,76,.4)}
+
+.check-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.check-btn{padding:10px 14px;border:1.5px solid var(--pink);border-radius:10px;background:#fff;color:var(--brown);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+.check-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent;transform:scale(1.03);box-shadow:0 4px 12px rgba(219,68,76,.4)}
+
+.time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.time-btn{padding:10px 6px;border:1.5px solid var(--pink);border-radius:10px;background:#fff;color:var(--brown);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+.time-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent;transform:scale(1.08);box-shadow:0 4px 14px rgba(219,68,76,.45)}
+.time-btn.full{background:var(--selected-gradient);color:#fff;border-color:transparent;cursor:not-allowed;font-size:12px;opacity:.85;box-shadow:none}
+
+.selected-info{display:none;background:var(--pink-bg);border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--brown);text-align:center;font-weight:700}
+
+.reason-other-wrap{display:none;margin-top:8px}
+
+.kiyaku-box{background:var(--pink-bg);border-radius:10px;padding:14px;margin-bottom:14px;font-size:11px;color:#555;line-height:1.8}
+.kiyaku-box strong{color:var(--brown);display:block;margin-bottom:6px}
+
+.agree-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.agree-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--brown);cursor:pointer;flex-shrink:0}
+.agree-row label{font-size:12px;color:#555;cursor:pointer}
+
+.btn{width:100%;padding:14px;background:var(--brown);border:none;border-radius:14px;color:#fff;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;letter-spacing:.05em}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+.loading{text-align:center;padding:16px;font-size:12px;color:#aaa;display:none}
+.error-msg{font-size:12px;color:#c8102e;text-align:center;padding:12px;display:none}
+.note{font-size:10px;color:#aaa;text-align:center;margin-top:14px;line-height:1.6}
+.line-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:#06C755;color:#fff;border-radius:22px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.05em}
+
+.success{display:none;text-align:center;padding:40px 20px}
+.success-icon{font-size:60px;margin-bottom:16px}
+.success-msg{font-size:16px;color:#222;font-weight:900;margin-bottom:8px}
+.success-sub{font-size:12px;color:#888;line-height:1.6}
+.back-btn{display:inline-block;margin-top:20px;padding:10px 24px;background:var(--pink-bg);color:var(--brown);border-radius:20px;font-size:12px;font-weight:700;text-decoration:none}
+</style>
+</head>
+<body>
+<div class="app">
+<div class="hd">
+<img class="hd-logo" src="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg" alt="ONE BALANCE BOXING GYM">
+<div class="logo-sub">PERSONAL KICKBOXERCISE</div>
+</div>
+<div class="body">
+<div id="form-area">
+<div class="title">パーソナルキックボクササイズ体験予約フォーム</div>
+<div class="trainer-badge">担当：稲田トレーナー</div>
+
+<div class="form-content active" id="form-content">
+
+<!-- 0. 持ってくるもの -->
+<div class="card">
+<div class="card-title">当日に持ってくるもの</div>
+<div class="mochimono-list">
+<div class="mochimono-item"><span class="mochimono-text">タオル</span></div>
+<div class="mochimono-item"><span class="mochimono-text">飲み物<span class="mochimono-note">（販売有り）</span></span></div>
+<div class="mochimono-item"><span class="mochimono-text">室内シューズ</span></div>
+<div class="mochimono-item"><span class="mochimono-text">運動できる格好<span class="mochimono-note">（何でもOK）</span></span></div>
+</div>
+</div>
+
+<!-- 0.5. 料金 -->
+<div class="card">
+<div class="card-title">料金</div>
+<div class="price-box">
+<div class="price-label">40分セッション</div>
+<div class="price-value"><span class="price-yen">¥</span><span id="price-value">3,300</span></div>
+<div class="price-sub">（税込）</div>
+</div>
+<div class="payment-box">
+<div class="payment-title">お支払い方法</div>
+<div class="payment-grid">
+<span class="payment-tag"><span class="payment-tag-icon">💳</span>VISA</span>
+<span class="payment-tag"><span class="payment-tag-icon">💳</span>JCB</span>
+<span class="payment-tag"><span class="payment-tag-icon">💳</span>Mastercard</span>
+<span class="payment-tag"><span class="payment-tag-icon">💳</span>AMEX</span>
+<span class="payment-tag"><span class="payment-tag-icon">💴</span>現金</span>
+<span class="payment-tag"><span class="payment-tag-icon">📱</span>PayPay</span>
+<span class="payment-tag"><span class="payment-tag-icon">🪙</span>J-Coin</span>
+</div>
+</div>
+</div>
+
+<!-- 1. 基本情報 -->
+<div class="card">
+<div class="card-title">基本情報</div>
+<div class="fg">
+<label>お名前 *</label>
+<input type="text" id="name" placeholder="山田 花子">
+</div>
+<div class="fg">
+<label>電話番号 *</label>
+<input type="tel" id="phone" placeholder="09012345678">
+</div>
+<div class="fg">
+<label>メールアドレス *</label>
+<input type="email" id="email" placeholder="your-email@example.com">
+<div class="fg-note">※ 予約確認メール・キャンセルURLをお送りします</div>
+</div>
+<div class="fg" style="margin-bottom:0">
+<label>住所 *</label>
+<input type="text" id="address" placeholder="米子市車尾6丁目8-59">
+</div>
+</div>
+
+<!-- 2. 希望日時 -->
+<div class="card">
+<div class="card-title">希望日時</div>
+<div class="fg">
+<label>希望日 ※日曜・祝日は定休日のため選択できません</label>
+<input type="date" id="date" onchange="loadSlots()">
+</div>
+<div class="choice-label">希望時間帯</div>
+<div class="loading" id="loading">空き時間を確認中...</div>
+<div class="error-msg" id="error-msg"></div>
+<div class="time-grid" id="time-grid"></div>
+<div class="selected-info" id="selected-info"></div>
+</div>
+
+<!-- 3. プロフィール -->
+<div class="card">
+<div class="card-title">プロフィール</div>
+<div class="choice-label">年代 *</div>
+<div class="radio-grid" style="margin-bottom:0">
+<button type="button" class="radio-btn" onclick="selectRadio('age','10代',this)">10代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','20代',this)">20代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','30代',this)">30代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','40代',this)">40代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','50代',this)">50代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','60代',this)">60代</button>
+<button type="button" class="radio-btn" onclick="selectRadio('age','70代以上',this)">70代以上</button>
+</div>
+</div>
+
+<!-- 4. 知ったキッカケ -->
+<div class="card">
+<div class="card-title">知ったキッカケ *（複数選択可）</div>
+<div class="check-grid" style="margin-bottom:0">
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','Instagram',this)">Instagram</button>
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','YouTube',this)">YouTube</button>
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','Google検索',this)">Google検索</button>
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','友人の紹介',this)">友人の紹介</button>
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','看板・通りがかり',this)">看板・通りがかり</button>
+<button type="button" class="check-btn" onclick="toggleCheck('kikkake','その他',this)" style="margin-bottom:0">その他</button>
+</div>
+</div>
+
+<!-- 5. これを選んでくれた理由 -->
+<div class="card">
+<div class="card-title">これを選んでくれた理由 *</div>
+<div class="check-grid" style="margin-bottom:0">
+<button type="button" class="radio-btn" style="text-align:left;padding:10px 14px" onclick="selectReason('レベルアップしたいから',this)">レベルアップしたいから</button>
+<button type="button" class="radio-btn" style="text-align:left;padding:10px 14px" onclick="selectReason('マンツーマンじゃないと動ける自信がない',this)">マンツーマンじゃないと動ける自信がない</button>
+<button type="button" class="radio-btn" style="text-align:left;padding:10px 14px" onclick="selectReason('人に動いているところを見られたくない',this)">人に動いているところを見られたくない</button>
+<button type="button" class="radio-btn" style="text-align:left;padding:10px 14px" onclick="selectReason('その他',this)">その他</button>
+</div>
+<div class="reason-other-wrap" id="reason-other-wrap">
+<input type="text" id="reason-other" placeholder="理由を教えてください">
+</div>
+</div>
+
+<!-- 6. 利用規約 -->
+<div class="card">
+<div class="card-title">利用規約</div>
+<div class="kiyaku-box" id="kiyaku-box"><strong>▼ 利用規約</strong>■ 原則として体験は1度だけとなります。<br>■ 体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。<br>■ キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。<br>■ ペアでのご利用は体験も1回あたり¥500引きです。</div>
+<div class="agree-row">
+<input type="checkbox" id="agree">
+<label for="agree">上記の利用規約をすべて読み、内容に同意します</label>
+</div>
+<button type="button" class="btn" id="submit-btn" onclick="submitForm()">体験を予約する</button>
+</div>
+
+<div class="note">
+ご不明な点はお気軽にご連絡ください。<br>
+<a href="https://lin.ee/NKUqyoV" class="line-btn" target="_blank" rel="noopener">
+<span class="line-btn-icon">💬</span>公式LINEで問い合わせる
+</a>
+<br>
+<a href="https://maps.app.goo.gl/jvu5VpCsG9UKXkFk6?g_st=ic" target="_blank" rel="noopener" style="display:inline-block;margin-top:10px;color:var(--brown);font-size:12px;font-weight:700;text-decoration:underline">📍 会場をGoogleマップで見る</a>
+</div>
+
+</div>
+</div>
+
+<div class="success" id="success-area">
+<div class="success-icon">🎉</div>
+<div class="success-msg" id="success-msg">体験予約を受け付けました！</div>
+<div class="success-sub">ご登録のメールアドレスに<br>予約確認とキャンセルURLを送信しました。<br>ご確認ください。</div>
+<a href="javascript:history.back()" class="back-btn">トップに戻る</a>
+</div>
+</div>
+</div>
+<script>
+const GAS_URL='https://script.google.com/macros/s/AKfycbxb5Sl1UkHNcIXEl_phlLILFFrAyqzjlJK95FFiZeZCeYTHtYgoyby5lRcOEFDoqrX6og/exec';
+
+// キックボクササイズ体験は稲田トレーナーのみ（HP・GAS側のCONFIG.TRAINER_PRODUCTと合わせること）
+const PRODUCT = { label: '稲田', price: 3300, lessonMin: 40, type: '体験', successMsg: '体験予約を受け付けました！' };
+const selectedTrainer = 'inada';
+
+let holidays={};
+fetch('https://holidays-jp.github.io/api/v1/date.json')
+.then(r=>r.json())
+.then(d=>{holidays=d;})
+.catch(()=>{});
+
+const selected={age:''};
+const checked={kikkake:[]};
+let reason='';
+let selectedStart=null,selectedEnd=null;
+
+const today=new Date();
+const tomorrow=new Date(today);
+tomorrow.setDate(tomorrow.getDate()+1);
+document.getElementById('date').setAttribute('min',tomorrow.toISOString().slice(0,10));
+document.getElementById('date').value=tomorrow.toISOString().slice(0,10);
+
+function selectRadio(key,val,btn){
+selected[key]=val;
+const grid=btn.parentElement;
+grid.querySelectorAll('.radio-btn').forEach(b=>b.classList.remove('selected'));
+btn.classList.add('selected');
+}
+
+function selectReason(val,btn){
+reason=val;
+const grid=btn.parentElement;
+grid.querySelectorAll('.radio-btn').forEach(b=>b.classList.remove('selected'));
+btn.classList.add('selected');
+document.getElementById('reason-other-wrap').style.display=(val==='その他')?'block':'none';
+}
+
+function toggleCheck(key,val,btn){
+const arr=checked[key];
+const idx=arr.indexOf(val);
+if(idx>=0){arr.splice(idx,1);btn.classList.remove('selected');}
+else{arr.push(val);btn.classList.add('selected');}
+}
+
+let loadSlotsToken=0;
+async function loadSlots(){
+const date=document.getElementById('date').value;
+if(!date)return;
+const myToken=++loadSlotsToken;
+const sel=new Date(date+'T00:00:00');
+const tod=new Date();tod.setHours(0,0,0,0);
+const grid=document.getElementById('time-grid');
+const loading=document.getElementById('loading');
+const errMsg=document.getElementById('error-msg');
+grid.innerHTML='';
+selectedStart=null;selectedEnd=null;
+document.getElementById('selected-info').style.display='none';
+
+if(sel<=tod)return;
+
+if(sel.getDay()===0){
+errMsg.textContent='日曜日は定休日のため予約できません。別の日をお選びください。';
+errMsg.style.display='block';
+document.getElementById('date').value='';
+return;
+}
+
+if(holidays[date]){
+errMsg.textContent='祝日（'+holidays[date]+'）は定休日のため予約できません。別の日をお選びください。';
+errMsg.style.display='block';
+document.getElementById('date').value='';
+return;
+}
+
+loading.style.display='block';
+errMsg.style.display='none';
+try{
+const res=await fetch(GAS_URL+'?action=getBoxingTaikenSlots&date='+date+'&trainer='+selectedTrainer+'&t='+Date.now(),{method:'GET',mode:'cors'});
+const data=await res.json();
+if(myToken!==loadSlotsToken)return; // 後から発生した呼び出しがあれば、古い結果は破棄する
+loading.style.display='none';
+if(data.error){errMsg.textContent=data.error;errMsg.style.display='block';return;}
+if(!data.slots||data.slots.length===0){errMsg.textContent='この日は空き枠がありません。別の日をお選びください。';errMsg.style.display='block';return;}
+grid.innerHTML='';
+data.slots.forEach(slot=>{
+const btn=document.createElement('button');
+btn.className='time-btn';
+btn.type='button';
+
+if(slot.full){
+btn.textContent=slot.label+'\n満';
+btn.classList.add('full');
+btn.style.whiteSpace='pre-line';
+btn.disabled=true;
+}else{
+btn.textContent=slot.label;
+btn.onclick=()=>{
+document.querySelectorAll('.time-btn').forEach(b=>b.classList.remove('selected'));
+btn.classList.add('selected');
+selectedStart=slot.start;selectedEnd=slot.end;
+const endDate=new Date(slot.end);
+const endLabel=String(endDate.getHours()).padStart(2,'0')+':'+String(endDate.getMinutes()).padStart(2,'0');
+const info=document.getElementById('selected-info');
+info.style.display='block';
+info.textContent='予約時間：'+slot.label+' 〜 '+endLabel;
+};
+}
+grid.appendChild(btn);
+});
+}catch(err){
+loading.style.display='none';
+errMsg.textContent='空き時間の取得に失敗しました。再度お試しください。';
+errMsg.style.display='block';
+}
+}
+
+function isValidEmail(email){
+return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+async function submitForm(){
+const name=document.getElementById('name').value.trim();
+const phone=document.getElementById('phone').value.trim();
+const email=document.getElementById('email').value.trim();
+const address=document.getElementById('address').value.trim();
+const date=document.getElementById('date').value;
+const agree=document.getElementById('agree').checked;
+if(!name||!phone||!email||!address){alert('お名前・電話番号・メールアドレス・住所を入力してください');return;}
+if(!isValidEmail(email)){alert('メールアドレスの形式が正しくありません');return;}
+if(!selected.age){alert('年代を選択してください');return;}
+if(checked.kikkake.length===0){alert('知ったキッカケを選択してください');return;}
+if(!reason){alert('選んでくれた理由を選択してください');return;}
+if(reason==='その他'&&!document.getElementById('reason-other').value.trim()){alert('その他の理由を入力してください');return;}
+if(!date||!selectedStart){alert('希望日と時間を選択してください');return;}
+if(!agree){alert('利用規約に同意してください');return;}
+const reasonFinal=(reason==='その他')?('その他：'+document.getElementById('reason-other').value.trim()):reason;
+const btn=document.getElementById('submit-btn');
+btn.disabled=true;btn.textContent='送信中...';
+const params=new URLSearchParams({
+action:'saveBoxingTaiken',
+name,phone,email,address,
+age:selected.age,
+kikkake:checked.kikkake.join('・'),
+reason:reasonFinal,
+trainer:PRODUCT.label,
+price:PRODUCT.price,
+start:selectedStart,
+end:selectedEnd
+});
+try{
+await fetch(GAS_URL+'?'+params.toString(),{method:'GET',mode:'cors'});
+document.getElementById('form-area').style.display='none';
+document.getElementById('success-msg').textContent=PRODUCT.successMsg;
+document.getElementById('success-area').style.display='block';
+}catch(err){
+document.getElementById('form-area').style.display='none';
+document.getElementById('success-msg').textContent=PRODUCT.successMsg;
+document.getElementById('success-area').style.display='block';
+}
+}
+</script>
+</body>
+</html>
