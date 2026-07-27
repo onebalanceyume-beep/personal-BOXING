@@ -84,7 +84,7 @@
   .records .records-title{font-weight:700;font-size:13px;color:var(--navy);margin-bottom:4px;}
   .record-item{font-size:13px;padding:6px 0;border-bottom:1px solid #f0f0f0;}
   .credibility-line{text-align:center;font-size:13px;color:var(--navy);font-weight:700;margin:-10px 0 28px;}
-  .credibility-line a{color:var(--accent);text-decoration:underline;}
+  .credibility-line a{color:var(--navy);text-decoration:underline;}
 
   .price-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eee;margin-bottom:18px;}
   .price-card h4{font-size:16px;margin-bottom:12px;color:var(--navy);}
@@ -94,8 +94,10 @@
   .note-list{font-size:13px;color:#666;margin-top:10px;line-height:1.8;}
 
   .plain-list{list-style:none;padding:0;margin:0;}
-  .plain-list li{padding:12px 0;border-bottom:1px solid #eee;font-size:14px;display:flex;gap:10px;}
-  .plain-list li b{min-width:96px;color:var(--navy);}
+  .plain-list li{padding:12px 0;border-bottom:1px solid #eee;font-size:14px;line-height:1.8;}
+  .plain-list li.kv{display:flex;gap:10px;align-items:flex-start;}
+  .plain-list li b{min-width:88px;flex-shrink:0;color:var(--navy);}
+  .plain-list li .v{flex:1;min-width:0;overflow-wrap:break-word;}
 
   .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   @media (min-width:640px){.gallery-grid{grid-template-columns:repeat(4,1fr);}}
@@ -128,7 +130,8 @@
   .fixed-cta .book{background:var(--accent);color:#fff;}
 
   #tokushoho{background:#fff;}
-  #tokushoho .plain-list li b{min-width:150px;}
+  #tokushoho .plain-list li{font-size:13px;}
+  #tokushoho .plain-list li b{min-width:112px;}
 </style>
 </head>
 <body>
@@ -150,7 +153,7 @@
         <li><a href="#voice">お客様の声</a></li>
         <li><a href="#faq">よくある質問</a></li>
         <li><a href="#access">アクセス</a></li>
-        <li><a href="personal_boxing_women.html">女性の方はこちら</a></li>
+        <li><a href="personal_boxing_women.html">キックボクササイズの方はこちら</a></li>
       </ul>
     </nav>
     <button class="hamburger" id="hamburgerBtn" aria-label="メニューを開く" aria-expanded="false">
@@ -168,7 +171,7 @@
     <li><a href="#voice">お客様の声</a></li>
     <li><a href="#faq">よくある質問</a></li>
     <li><a href="#access">アクセス</a></li>
-    <li><a href="personal_boxing_women.html">女性の方はこちら（キックボクササイズ）</a></li>
+    <li><a href="personal_boxing_women.html">キックボクササイズの方はこちら</a></li>
     <li><a href="https://onebalanceyume-beep.github.io/personal-BOXING/personal_boxing_taiken_yoyaku.html">体験予約はこちら</a></li>
     <li><a href="https://onebalanceyume-beep.github.io/personal-BOXING/personal_boxing_cancel.html">キャンセルはこちら</a></li>
     <li><a href="https://lin.ee/NKUqyoV">公式LINE</a></li>
@@ -274,13 +277,13 @@
   <div class="container">
     <div class="section-title"><span>INFO</span>持ち物・営業時間</div>
     <ul class="plain-list">
-      <li><b>持ち物</b>タオル／飲み物（販売あり）／室内シューズ／運動できる服装（ご自身のグローブがあればご持参可）</li>
-      <li><b>設備</b>シャワー室・ロッカー完備</li>
-      <li><b>支払い方法</b>VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coin</li>
-      <li><b>対象年齢</b>中学生以上</li>
-      <li><b>レッスン時間</b>本予約50分／体験40分</li>
-      <li><b>営業時間</b>9:00〜22:00</li>
-      <li><b>定休日</b>日曜・祝日</li>
+      <li class="kv"><b>持ち物</b><span class="v">タオル／飲み物（販売あり）／室内シューズ／運動できる服装（ご自身のグローブがあればご持参可）</span></li>
+      <li class="kv"><b>設備</b><span class="v">シャワー室・ロッカー完備</span></li>
+      <li class="kv"><b>支払い方法</b><span class="v">VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coin</span></li>
+      <li class="kv"><b>対象年齢</b><span class="v">中学生以上</span></li>
+      <li class="kv"><b>レッスン時間</b><span class="v">本予約50分／体験40分</span></li>
+      <li class="kv"><b>営業時間</b><span class="v">9:00〜22:00</span></li>
+      <li class="kv"><b>定休日</b><span class="v">日曜・祝日</span></li>
     </ul>
   </div>
 </section>
@@ -290,6 +293,7 @@
     <div class="section-title"><span>GYM</span>ジムの雰囲気</div>
     <div class="gallery-grid">
       <div class="gallery-item"><img src="images/gym_exterior2.jpg" alt="外観"><p class="cap">外観</p></div>
+      <div class="gallery-item"><img src="images/gym_action.jpg" alt="ジムの様子"><p class="cap">ジムの様子</p></div>
       <div class="gallery-item"><img src="images/gym_ring2.jpg" alt="リング"><p class="cap">リング</p></div>
       <div class="gallery-item"><img src="images/gym_lockers2.jpg" alt="ロッカー・更衣室"><p class="cap">ロッカー・更衣室</p></div>
       <div class="gallery-item"><img src="images/gym_shower2.jpg" alt="シャワー室"><p class="cap">シャワー室</p></div>
@@ -328,9 +332,9 @@
     <div class="section-title"><span>ACCESS</span>アクセス</div>
     <div class="access-box">
       <ul class="plain-list">
-        <li><b>住所</b>〒683-0006 鳥取県米子市車尾6丁目8-59</li>
-        <li><b>駐車場</b>20台あり</li>
-        <li><b>お問い合わせ</b><a href="https://lin.ee/NKUqyoV">公式LINEよりお問い合わせください</a></li>
+        <li class="kv"><b>住所</b><span class="v">〒683-0006 鳥取県米子市車尾6丁目8-59</span></li>
+        <li class="kv"><b>駐車場</b><span class="v">20台あり</span></li>
+        <li class="kv"><b>お問い合わせ</b><span class="v"><a href="https://lin.ee/NKUqyoV">公式LINEよりお問い合わせください</a></span></li>
       </ul>
       <div style="margin-top:16px;">
         <a class="cta-btn" style="background:var(--navy);" href="https://maps.app.goo.gl/Te8DgyVcU7nWSAwK9?g_st=ic">Googleマップで見る</a>
@@ -343,10 +347,10 @@
   <div class="container">
     <div class="section-title"><span>RULES</span>体験規約</div>
     <ul class="plain-list">
-      <li><b></b>原則として体験は1度だけとなります。</li>
-      <li><b></b>体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。</li>
-      <li><b></b>キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。</li>
-      <li><b></b>ペアでのご利用は体験も1回あたり¥500引きです。</li>
+      <li>原則として体験は1度だけとなります。</li>
+      <li>体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。</li>
+      <li>キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。</li>
+      <li>ペアでのご利用は体験も1回あたり¥500引きです。</li>
     </ul>
   </div>
 </section>
@@ -355,17 +359,17 @@
   <div class="container">
     <div class="section-title"><span>LEGAL</span>特定商取引法に基づく表記</div>
     <ul class="plain-list">
-      <li><b>運営者名</b>長尾儀弘</li>
-      <li><b>所在地</b>〒683-0006 鳥取県米子市車尾6丁目8-59</li>
-      <li><b>電話番号</b>0859-49-5275</li>
-      <li><b>メールアドレス</b>one.balance.yume@gmail.com</li>
-      <li><b>販売価格</b>各サービスページに記載の価格（税込）</li>
-      <li><b>商品代金以外の必要料金</b>なし</li>
-      <li><b>お支払い方法</b>VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coin</li>
-      <li><b>お支払い時期</b>予約確定時、または当日</li>
-      <li><b>サービス提供時期</b>予約日時にてご提供</li>
-      <li><b>キャンセル・返金について</b>予約日時の24時間前までにご連絡ください。24時間を過ぎた場合、原則キャンセル・返金はお受けできません。</li>
-      <li><b>回数券について</b>有効期限は購入日から6ヶ月、ご本人限定でのご利用となります。</li>
+      <li class="kv"><b>運営者名</b><span class="v">長尾儀弘</span></li>
+      <li class="kv"><b>所在地</b><span class="v">〒683-0006 鳥取県米子市車尾6丁目8-59</span></li>
+      <li class="kv"><b>電話番号</b><span class="v">0859-49-5275</span></li>
+      <li class="kv"><b>メール</b><span class="v">one.balance.yume@gmail.com</span></li>
+      <li class="kv"><b>販売価格</b><span class="v">各サービスページに記載の価格（税込）</span></li>
+      <li class="kv"><b>代金以外の料金</b><span class="v">なし</span></li>
+      <li class="kv"><b>お支払い方法</b><span class="v">VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coin</span></li>
+      <li class="kv"><b>お支払い時期</b><span class="v">予約確定時、または当日</span></li>
+      <li class="kv"><b>提供時期</b><span class="v">予約日時にてご提供</span></li>
+      <li class="kv"><b>キャンセル・返金</b><span class="v">予約日時の24時間前までにご連絡ください。24時間を過ぎた場合、原則キャンセル・返金はお受けできません。</span></li>
+      <li class="kv"><b>回数券について</b><span class="v">有効期限は購入日から6ヶ月、ご本人限定でのご利用となります。</span></li>
     </ul>
   </div>
 </section>
@@ -377,7 +381,7 @@
       <a href="https://www.instagram.com/one.balance.yume?igsh=dTBoaDN3OTg5emV6&utm_source=qr">Instagram</a>
       <a href="https://youtube.com/channel/UCV8rLWSD4doN8OvCaVp-ygg?si=o1FTwzpXW2D8Yskm">YouTube</a>
       <a href="https://lin.ee/NKUqyoV">公式LINE</a>
-      <a href="personal_boxing_women.html">女性の方はこちら（キックボクササイズ）</a>
+      <a href="personal_boxing_women.html">キックボクササイズの方はこちら</a>
       <a href="#tokushoho">特定商取引法に基づく表記</a>
     </div>
     <p class="copyright">&copy; 2026 ONE BALANCE BOXING</p>
