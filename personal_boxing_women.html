@@ -27,7 +27,7 @@
   img{max-width:100%;display:block;}
   .container{max-width:960px;margin:0 auto;padding:0 20px;}
   section{padding:56px 0;}
-  .section-title{text-align:center;font-size:22px;letter-spacing:.05em;margin-bottom:32px;}
+  .section-title{text-align:center;font-size:22px;letter-spacing:.05em;margin-bottom:32px;word-break:normal;overflow-wrap:normal;}
   .section-title span{display:block;font-size:13px;color:var(--accent);letter-spacing:.15em;margin-bottom:6px;}
 
   header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);border-bottom:1px solid #f3dcdf;}
@@ -105,9 +105,10 @@
   .testimonial p.name{font-size:13px;color:var(--accent);font-weight:700;}
 
   .faq-item{background:#fff;border-radius:10px;border:1px solid #f3dcdf;margin-bottom:10px;}
-  .faq-item summary{cursor:pointer;padding:16px 18px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:10px;}
+  .faq-item summary{cursor:pointer;padding:16px 18px;font-weight:700;font-size:14px;list-style:none;display:flex;gap:10px;align-items:flex-start;}
   .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary:before{content:"Q";color:var(--brown);}
+  .faq-item summary:before{content:"Q";color:var(--brown);flex-shrink:0;}
+  .faq-item summary .q-text{flex:1;min-width:0;overflow-wrap:break-word;}
   .faq-item .a{padding:0 18px 16px 40px;font-size:14px;line-height:1.9;color:#4a3a2a;}
 
   .access-box{background:#fff;border-radius:14px;padding:24px;border:1px solid #f3dcdf;}
@@ -258,11 +259,11 @@
   <div class="container">
     <div class="section-title"><span>GYM</span>ジムの雰囲気</div>
     <div class="gallery-grid">
-      <div class="gallery-item"><img src="images/gym_exterior2.jpg" alt="外観"><p class="cap">外観</p></div>
-      <div class="gallery-item"><img src="images/gym_action.jpg" alt="ジムの様子"><p class="cap">ジムの様子</p></div>
-      <div class="gallery-item"><img src="images/gym_ring2.jpg" alt="リング"><p class="cap">リング</p></div>
-      <div class="gallery-item"><img src="images/gym_lockers2.jpg" alt="ロッカー・更衣室"><p class="cap">ロッカー・更衣室</p></div>
-      <div class="gallery-item"><img src="images/gym_shower2.jpg" alt="シャワー室"><p class="cap">シャワー室</p></div>
+      <div class="gallery-item"><img src="gym_exterior2.jpg" alt="外観"><p class="cap">外観</p></div>
+      <div class="gallery-item"><img src="gym_action.jpg" alt="ジムの様子"><p class="cap">ジムの様子</p></div>
+      <div class="gallery-item"><img src="gym_ring2.jpg" alt="リング"><p class="cap">リング</p></div>
+      <div class="gallery-item"><img src="gym_lockers2.jpg" alt="ロッカー・更衣室"><p class="cap">ロッカー・更衣室</p></div>
+      <div class="gallery-item"><img src="gym_shower2.jpg" alt="シャワー室"><p class="cap">シャワー室</p></div>
     </div>
   </div>
 </section>
@@ -280,17 +281,17 @@
 <section id="faq">
   <div class="container">
     <div class="section-title"><span>FAQ</span>よくある質問</div>
-    <details class="faq-item"><summary>運動未経験でも大丈夫ですか？</summary><div class="a">マンツーマン指導なので未経験の方も安心して始められます。</div></details>
-    <details class="faq-item"><summary>対象年齢はありますか？</summary><div class="a">中学生以上の方が対象です。</div></details>
-    <details class="faq-item"><summary>持ち物は何が必要ですか？</summary><div class="a">タオル・飲み物（販売あり）・室内シューズ・運動できる服装です。ご自身のグローブをお持ちの方はご持参いただいても構いません。</div></details>
-    <details class="faq-item"><summary>体験は一人でもペアでも受けられますか？</summary><div class="a">お一人様、ペアどちらも受付可能です。体験のペア利用は1回あたり¥500引き、本予約のペア利用は1回あたり¥1,500引きです。</div></details>
-    <details class="faq-item"><summary>女性一人でも安心して通えますか？</summary><div class="a">マンツーマン指導のため、周りの目を気にせず自分のペースで通えます。</div></details>
-    <details class="faq-item"><summary>キャンセル・予約変更はできますか？</summary><div class="a">予約日時の24時間前であればキャンセル・変更が可能です。24時間を過ぎてしまうと原則キャンセルはお受けできません。やむを得ない事情がある場合は、まず公式LINEよりご連絡ください。</div></details>
-    <details class="faq-item"><summary>支払い方法は何がありますか？</summary><div class="a">VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coinに対応しています。</div></details>
-    <details class="faq-item"><summary>パーソナルはどれぐらいのペースで通えばいいですか？</summary><div class="a">目安は週1回をおすすめします。覚えた技術の復習と次の課題への取り組み提案をすることができて、より最速で上達するベストなペースになります。</div></details>
-    <details class="faq-item"><summary>駐車場はありますか？</summary><div class="a">会場に20台分の駐車場があります。</div></details>
-    <details class="faq-item"><summary>体験は何度でも受けられますか？</summary><div class="a">体験は原則1度限りとなります。</div></details>
-    <details class="faq-item"><summary>ボクシングとキックボクササイズは何が違いますか？</summary><div class="a">キックボクササイズパーソナルはフォーム習得が早く、姿勢改善・脚やせ・O脚や腰痛といったお悩みに筋肉からアプローチできます。ボクシングパーソナルは技術向上に特化した指導です。<a href="personal_boxing_men.html">ボクシングページはこちら</a>。</div></details>
+    <details class="faq-item"><summary><span class="q-text">運動未経験でも大丈夫ですか？</span></summary><div class="a">マンツーマン指導なので未経験の方も安心して始められます。</div></details>
+    <details class="faq-item"><summary><span class="q-text">対象年齢はありますか？</span></summary><div class="a">中学生以上の方が対象です。</div></details>
+    <details class="faq-item"><summary><span class="q-text">持ち物は何が必要ですか？</span></summary><div class="a">タオル・飲み物（販売あり）・室内シューズ・運動できる服装です。ご自身のグローブをお持ちの方はご持参いただいても構いません。</div></details>
+    <details class="faq-item"><summary><span class="q-text">体験は一人でもペアでも受けられますか？</span></summary><div class="a">お一人様、ペアどちらも受付可能です。体験のペア利用は1回あたり¥500引き、本予約のペア利用は1回あたり¥1,500引きです。</div></details>
+    <details class="faq-item"><summary><span class="q-text">女性一人でも安心して通えますか？</span></summary><div class="a">マンツーマン指導のため、周りの目を気にせず自分のペースで通えます。</div></details>
+    <details class="faq-item"><summary><span class="q-text">キャンセル・予約変更はできますか？</span></summary><div class="a">予約日時の24時間前であればキャンセル・変更が可能です。24時間を過ぎてしまうと原則キャンセルはお受けできません。やむを得ない事情がある場合は、まず公式LINEよりご連絡ください。</div></details>
+    <details class="faq-item"><summary><span class="q-text">支払い方法は何がありますか？</span></summary><div class="a">VISA、JCB、Mastercard、AMEX、現金、PayPay、J-Coinに対応しています。</div></details>
+    <details class="faq-item"><summary><span class="q-text">パーソナルはどれぐらいのペースで通えばいいですか？</span></summary><div class="a">目安は週1回をおすすめします。覚えた技術の復習と次の課題への取り組み提案をすることができて、より最速で上達するベストなペースになります。</div></details>
+    <details class="faq-item"><summary><span class="q-text">駐車場はありますか？</span></summary><div class="a">会場に20台分の駐車場があります。</div></details>
+    <details class="faq-item"><summary><span class="q-text">体験は何度でも受けられますか？</span></summary><div class="a">体験は原則1度限りとなります。</div></details>
+    <details class="faq-item"><summary><span class="q-text">ボクシングとキックボクササイズは何が違いますか？</span></summary><div class="a">キックボクササイズパーソナルはフォーム習得が早く、姿勢改善・脚やせ・O脚や腰痛といったお悩みに筋肉からアプローチできます。ボクシングパーソナルは技術向上に特化した指導です。<a href="personal_boxing_men.html">ボクシングページはこちら</a>。</div></details>
   </div>
 </section>
 
@@ -303,7 +304,7 @@
         <li class="kv"><b>駐車場</b><span class="v">20台あり</span></li>
         <li class="kv"><b>お問い合わせ</b><span class="v"><a href="https://lin.ee/NKUqyoV">公式LINEよりお問い合わせください</a></span></li>
       </ul>
-      <div style="margin-top:16px;">
+      <div style="margin-top:16px;text-align:center;">
         <a class="cta-btn" href="https://maps.app.goo.gl/Te8DgyVcU7nWSAwK9?g_st=ic">Googleマップで見る</a>
       </div>
     </div>
