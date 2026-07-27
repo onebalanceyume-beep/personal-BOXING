@@ -10,113 +10,72 @@
 :root{
 --red:#C8102E;--red2:#a30d24;--red-bg:#fdf1f1;
 --gold:#c9a227;--gold-l:#e6cf7a;
---navy:#16213e;--navy2:#0e1830;--navy-text:#f0ead6;
 --btn-gradient:linear-gradient(135deg,var(--red),var(--gold));
 }
-body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color:#222;min-height:100vh;transition:background .3s}
-body[data-trainer="nagao"]{background:var(--navy2);--btn-gradient:linear-gradient(135deg,var(--navy),var(--gold))}
-.app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;transition:background .3s}
-body[data-trainer="nagao"] .app{background:var(--navy2)}
-.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold);transition:all .3s}
-body[data-trainer="nagao"] .hd{background:var(--navy);border-bottom-color:var(--gold)}
+body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color:#222;min-height:100vh}
+.app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh}
+.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold)}
 .hd-logo{height:38px;border-radius:8px;background:#fff;padding:4px;display:block;margin:0 auto}
 .logo-sub{font-size:11px;color:var(--gold-l);letter-spacing:.2em;margin-top:8px;font-weight:700}
 .body{padding:20px}
-.title{font-size:18px;color:#222;font-weight:900;margin-bottom:20px;transition:color .3s}
-body[data-trainer="nagao"] .title{color:var(--navy-text)}
+.title{font-size:18px;color:#222;font-weight:900;margin-bottom:20px}
 
-.trainer-select{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:1.5px solid var(--gold);transition:all .3s}
-body[data-trainer="nagao"] .trainer-select{background:var(--navy);border-color:var(--gold)}
-.trainer-step{font-size:10px;letter-spacing:.3em;color:var(--red2);text-align:center;margin-bottom:12px}
-body[data-trainer="nagao"] .trainer-step{color:var(--gold)}
-.trainer-title{font-size:12px;color:#888;text-align:center;margin-bottom:8px;letter-spacing:.1em}
-body[data-trainer="nagao"] .trainer-title{color:var(--gold-l)}
-.trainer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.trainer-btn{padding:18px 10px;border:1.5px solid var(--gold);border-radius:12px;background:#fafafa;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
-.trainer-btn.selected-inada{background:linear-gradient(135deg,var(--red-bg),#fff);border-color:var(--red);box-shadow:0 2px 8px rgba(200,16,46,.25)}
-.trainer-btn.selected-nagao{background:linear-gradient(135deg,var(--navy),var(--navy2));border-color:var(--gold);color:var(--gold-l);box-shadow:0 2px 8px rgba(201,162,39,.3)}
-.trainer-name{font-size:15px;font-weight:900;color:#aaa}
-.trainer-btn.selected-inada .trainer-name{color:var(--red2)}
-.trainer-btn.selected-nagao .trainer-name{color:var(--gold)}
+.trainer-select{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:1.5px solid var(--gold);text-align:center}
+.trainer-step{font-size:10px;letter-spacing:.3em;color:var(--red2);margin-bottom:10px}
+.trainer-name-fixed{font-size:17px;font-weight:900;color:var(--red2)}
 
-.form-content{opacity:.3;pointer-events:none;transition:opacity .3s}
-.form-content.active{opacity:1;pointer-events:auto}
+.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px}
+.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px}
 
-.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px;transition:all .3s}
-body[data-trainer="nagao"] .card{background:var(--navy);border:1px solid var(--gold)}
-.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px;transition:all .3s}
-body[data-trainer="nagao"] .card-title{color:var(--gold);background:none;padding:0;display:block}
-
-.mochimono-list{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
-body[data-trainer="nagao"] .mochimono-list{background:var(--navy2)}
+.mochimono-list{background:var(--red-bg);border-radius:10px;padding:14px 16px}
 .mochimono-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;color:#444;border-bottom:1px dashed var(--red-bg)}
-body[data-trainer="nagao"] .mochimono-item{color:var(--navy-text);border-bottom-color:#26355c}
 .mochimono-item:last-child{border-bottom:none}
 .mochimono-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red2);flex-shrink:0}
-body[data-trainer="nagao"] .mochimono-item::before{background:var(--gold)}
 .mochimono-text{flex:1;line-height:1.5}
 .mochimono-note{font-size:10px;color:var(--red2);font-weight:700;margin-left:4px}
-body[data-trainer="nagao"] .mochimono-note{color:var(--gold)}
 
-.price-box{background:var(--red);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px;transition:background .3s}
-body[data-trainer="nagao"] .price-box{background:var(--navy2)}
+.price-box{background:var(--red);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px}
 .price-label{font-size:11px;color:rgba(255,255,255,.85);margin-bottom:6px;letter-spacing:.08em}
-body[data-trainer="nagao"] .price-label{color:var(--gold-l)}
-.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1;transition:color .3s}
-body[data-trainer="nagao"] .price-value{color:var(--gold)}
+.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1}
 .price-yen{font-size:18px;margin-right:2px}
 .price-sub{font-size:10px;color:rgba(255,255,255,.75);margin-top:4px}
 
-.payment-box{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
-body[data-trainer="nagao"] .payment-box{background:var(--navy2)}
+.payment-box{background:var(--red-bg);border-radius:10px;padding:14px 16px}
 .payment-title{font-size:10px;color:#888;font-weight:700;margin-bottom:10px;letter-spacing:.06em}
-body[data-trainer="nagao"] .payment-title{color:var(--gold-l)}
 .payment-grid{display:flex;flex-wrap:wrap;gap:6px}
-.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--red);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700;transition:all .3s}
-body[data-trainer="nagao"] .payment-tag{background:var(--navy);color:var(--gold)}
+.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--red);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700}
 .payment-tag-icon{font-size:12px}
 
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:10px;color:#888;font-weight:700}
-body[data-trainer="nagao"] .fg label{color:var(--gold-l)}
-.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(200,16,46,.25);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none;transition:all .3s}
-body[data-trainer="nagao"] .fg input{background:var(--navy2);border-color:var(--gold);color:var(--navy-text)}
+.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(200,16,46,.25);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none}
 .fg input[type=date]{min-height:44px;display:block}
 .fg-note{font-size:10px;color:var(--red2);margin-top:4px;line-height:1.5}
-body[data-trainer="nagao"] .fg-note{color:var(--gold-l)}
 
 .choice-label{font-size:10px;color:#888;font-weight:700;margin-bottom:8px}
-body[data-trainer="nagao"] .choice-label{color:var(--gold-l)}
 
 .radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .radio-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
-body[data-trainer="nagao"] .radio-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .radio-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
 .check-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .check-btn{padding:10px 14px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
-body[data-trainer="nagao"] .check-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .check-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
 .time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .time-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
-body[data-trainer="nagao"] .time-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .time-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
-.selected-info{display:none;background:#fff;border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--red2);text-align:center;font-weight:700;transition:all .3s}
-body[data-trainer="nagao"] .selected-info{background:var(--navy2);color:var(--gold)}
+.selected-info{display:none;background:#fff;border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--red2);text-align:center;font-weight:700}
 
 .reason-other-wrap{display:none;margin-top:8px}
 
-.kiyaku-box{background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;font-size:11px;color:#555;line-height:1.8;transition:all .3s}
-body[data-trainer="nagao"] .kiyaku-box{background:var(--navy2);color:var(--navy-text)}
+.kiyaku-box{background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;font-size:11px;color:#555;line-height:1.8}
 .kiyaku-box strong{color:var(--red2);display:block;margin-bottom:6px}
-body[data-trainer="nagao"] .kiyaku-box strong{color:var(--gold)}
 
 .agree-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .agree-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--red2);cursor:pointer;flex-shrink:0}
 .agree-row label{font-size:12px;color:#555;cursor:pointer}
-body[data-trainer="nagao"] .agree-row label{color:var(--navy-text)}
 
 .btn{width:100%;padding:14px;background:var(--btn-gradient);border:none;border-radius:14px;color:#fff;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;letter-spacing:.05em}
 .btn:disabled{opacity:.5;cursor:not-allowed}
@@ -124,7 +83,6 @@ body[data-trainer="nagao"] .agree-row label{color:var(--navy-text)}
 .loading{text-align:center;padding:16px;font-size:12px;color:#aaa;display:none}
 .error-msg{font-size:12px;color:var(--red);text-align:center;padding:12px;display:none}
 .note{font-size:10px;color:#aaa;text-align:center;margin-top:14px;line-height:1.6}
-body[data-trainer="nagao"] .note{color:var(--gold-l)}
 .line-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:#06C755;color:#fff;border-radius:22px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.05em}
 
 .success{display:none;text-align:center;padding:40px 20px}
@@ -144,18 +102,10 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 <div id="form-area">
 <div class="title">パーソナルボクシング体験予約フォーム</div>
 
-<!-- STEP1: 担当トレーナー選択 -->
+<!-- 担当トレーナー：稲田トレーナー固定（体験受付は稲田のみ） -->
 <div class="trainer-select">
-<div class="trainer-step">STEP 1</div>
-<div class="trainer-title">担当トレーナーを選択してください</div>
-<div class="trainer-grid">
-<button type="button" class="trainer-btn" id="btn-inada" onclick="selectTrainer('inada')">
-<div class="trainer-name">稲田</div>
-</button>
-<button type="button" class="trainer-btn" id="btn-nagao" onclick="selectTrainer('nagao')">
-<div class="trainer-name">長尾</div>
-</button>
-</div>
+<div class="trainer-step">担当トレーナー</div>
+<div class="trainer-name-fixed">稲田 トレーナー</div>
 </div>
 
 <div class="form-content" id="form-content">
@@ -175,7 +125,7 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 <div class="card">
 <div class="card-title">体験料金</div>
 <div class="price-box">
-<div class="price-label" id="price-label">40分セッション</div>
+<div class="price-label">40分セッション</div>
 <div class="price-value"><span class="price-yen">¥</span><span id="price-value">3,300</span></div>
 <div class="price-sub">（税込）</div>
 </div>
@@ -229,7 +179,7 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 <div class="selected-info" id="selected-info"></div>
 </div>
 
-<!-- 3. プロフィール（性別・運動経験なし） -->
+<!-- 3. プロフィール -->
 <div class="card">
 <div class="card-title">プロフィール</div>
 <div class="choice-label">年代 *</div>
@@ -311,9 +261,10 @@ body[data-trainer="nagao"] .note{color:var(--gold-l)}
 <script>
 const GAS_URL='https://script.google.com/macros/s/AKfycbxb5Sl1UkHNcIXEl_phlLILFFrAyqzjlJK95FFiZeZCeYTHtYgoyby5lRcOEFDoqrX6og/exec';
 
-const PRICES={ inada:3300, nagao:5500 };
-const TRAINER_LABEL={ inada:'稲田', nagao:'長尾' };
-const TRAINER_KEYWORD={ inada:'/稲田', nagao:'/長尾' };
+// 体験受付は稲田トレーナーのみ
+const selectedTrainer='inada';
+const TRAINER_LABEL={ inada:'稲田' };
+const PRICE=3300;
 
 let holidays={};
 fetch('https://holidays-jp.github.io/api/v1/date.json')
@@ -321,7 +272,6 @@ fetch('https://holidays-jp.github.io/api/v1/date.json')
 .then(d=>{holidays=d;})
 .catch(()=>{});
 
-let selectedTrainer='';
 const selected={age:''};
 const checked={kikkake:[]};
 let reason='';
@@ -334,25 +284,6 @@ document.getElementById('date').setAttribute('min',tomorrow.toISOString().slice(
 document.getElementById('date').value=tomorrow.toISOString().slice(0,10);
 
 function formatYen(n){ return n.toLocaleString('ja-JP'); }
-
-function selectTrainer(trainer){
-selectedTrainer=trainer;
-const body=document.body;
-const btnI=document.getElementById('btn-inada');
-const btnN=document.getElementById('btn-nagao');
-btnI.classList.remove('selected-inada','selected-nagao');
-btnN.classList.remove('selected-inada','selected-nagao');
-if(trainer==='nagao'){
-body.setAttribute('data-trainer','nagao');
-btnN.classList.add('selected-nagao');
-}else{
-body.removeAttribute('data-trainer');
-btnI.classList.add('selected-inada');
-}
-document.getElementById('price-value').textContent=formatYen(PRICES[trainer]);
-document.getElementById('form-content').classList.add('active');
-if(document.getElementById('date').value) loadSlots();
-}
 
 function selectRadio(key,val,btn){
 selected[key]=val;
@@ -378,7 +309,6 @@ else{arr.push(val);btn.classList.add('selected');}
 
 let loadSlotsToken=0;
 async function loadSlots(){
-if(!selectedTrainer)return;
 const date=document.getElementById('date').value;
 if(!date)return;
 const myToken=++loadSlotsToken;
@@ -453,7 +383,6 @@ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 async function submitForm(){
-if(!selectedTrainer){alert('担当トレーナーを選択してください');return;}
 const name=document.getElementById('name').value.trim();
 const phone=document.getElementById('phone').value.trim();
 const email=document.getElementById('email').value.trim();
@@ -478,8 +407,7 @@ age:selected.age,
 kikkake:checked.kikkake.join('・'),
 reason:reasonFinal,
 trainer:TRAINER_LABEL[selectedTrainer],
-trainerKeyword:TRAINER_KEYWORD[selectedTrainer],
-price:PRICES[selectedTrainer],
+price:PRICE,
 start:selectedStart,
 end:selectedEnd
 });
@@ -493,7 +421,8 @@ document.getElementById('success-area').style.display='block';
 }
 }
 
-selectTrainer('inada');
+document.getElementById('price-value').textContent=formatYen(PRICE);
+if(document.getElementById('date').value) loadSlots();
 </script>
 </body>
 </html>
