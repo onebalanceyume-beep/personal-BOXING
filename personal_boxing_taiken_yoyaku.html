@@ -3,7 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <title>ONE BALANCE BOXING — パーソナルボクシング予約</title>
+<link rel="apple-touch-icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
+<link rel="icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#C8102E">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -92,19 +99,23 @@ body[data-trainer="nagao"] .fg-note{color:var(--gold-l)}
 body[data-trainer="nagao"] .choice-label{color:var(--gold-l)}
 
 .radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
-.radio-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+.radio-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s;position:relative}
 body[data-trainer="nagao"] .radio-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
-.radio-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
+.radio-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent;transform:scale(1.06);box-shadow:0 4px 12px rgba(200,16,46,.35)}
+.radio-btn.selected::before{content:'\2713 ';font-weight:900}
 
 .check-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .check-btn{padding:10px 14px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
 body[data-trainer="nagao"] .check-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
-.check-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
+.check-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent;transform:scale(1.03);box-shadow:0 4px 12px rgba(200,16,46,.35)}
+.check-btn.selected::before{content:'\2713 ';font-weight:900}
 
 .time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .time-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
 body[data-trainer="nagao"] .time-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
-.time-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
+.time-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent;transform:scale(1.08);box-shadow:0 4px 14px rgba(200,16,46,.4)}
+.time-btn.selected::before{content:'\2713 ';font-weight:900}
+.time-btn.full{background:linear-gradient(135deg,#5BB9CD,#DB444C);color:#fff;border-color:transparent;cursor:not-allowed;font-size:12px;opacity:.85;box-shadow:none}
 
 .selected-info{display:none;background:#fff;border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--red2);text-align:center;font-weight:700;transition:all .3s}
 body[data-trainer="nagao"] .selected-info{background:var(--navy2);color:var(--gold)}
@@ -450,8 +461,9 @@ btn.className='time-btn';
 btn.type='button';
 
 if(slot.full){
-btn.textContent=slot.label+'\n【満】';
-btn.style.cssText='background:#ddd;color:#aaa;border-color:#ccc;cursor:not-allowed;font-size:11px;white-space:pre-line;opacity:0.7;';
+btn.textContent=slot.label+'\n満';
+btn.classList.add('full');
+btn.style.whiteSpace='pre-line';
 btn.disabled=true;
 }else{
 btn.textContent=slot.label;
