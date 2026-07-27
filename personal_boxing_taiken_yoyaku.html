@@ -3,79 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>ONE BALANCE BOXING — パーソナルボクシング体験予約</title>
+<title>ONE BALANCE BOXING — パーソナルボクシング予約</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700;900&family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
 --red:#C8102E;--red2:#a30d24;--red-bg:#fdf1f1;
 --gold:#c9a227;--gold-l:#e6cf7a;
+--navy:#16213e;--navy2:#0e1830;--navy-text:#f0ead6;
 --btn-gradient:linear-gradient(135deg,var(--red),var(--gold));
 }
-body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color:#222;min-height:100vh}
-.app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh}
-.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold)}
+body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color:#222;min-height:100vh;transition:background .3s}
+body[data-trainer="nagao"]{background:var(--navy2);--btn-gradient:linear-gradient(135deg,var(--navy),var(--gold))}
+.app{max-width:480px;margin:0 auto;background:#fff;min-height:100vh;transition:background .3s}
+body[data-trainer="nagao"] .app{background:var(--navy2)}
+.hd{padding:16px 20px;background:var(--red);text-align:center;border-bottom:3px solid var(--gold);transition:all .3s}
+body[data-trainer="nagao"] .hd{background:var(--navy);border-bottom-color:var(--gold)}
 .hd-logo{height:38px;border-radius:8px;background:#fff;padding:4px;display:block;margin:0 auto}
 .logo-sub{font-size:11px;color:var(--gold-l);letter-spacing:.2em;margin-top:8px;font-weight:700}
 .body{padding:20px}
-.title{font-size:18px;color:#222;font-weight:900;margin-bottom:20px}
+.title{font-size:18px;color:#222;font-weight:900;margin-bottom:20px;transition:color .3s}
+body[data-trainer="nagao"] .title{color:var(--navy-text)}
 
-.trainer-select{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:1.5px solid var(--gold);text-align:center}
-.trainer-step{font-size:10px;letter-spacing:.3em;color:var(--red2);margin-bottom:10px}
-.trainer-name-fixed{font-size:17px;font-weight:900;color:var(--red2)}
+.trainer-select{background:#fff;border-radius:16px;padding:20px;margin-bottom:16px;border:1.5px solid var(--gold);transition:all .3s}
+body[data-trainer="nagao"] .trainer-select{background:var(--navy);border-color:var(--gold)}
+.trainer-step{font-size:10px;letter-spacing:.3em;color:var(--red2);text-align:center;margin-bottom:12px}
+body[data-trainer="nagao"] .trainer-step{color:var(--gold)}
+.trainer-title{font-size:12px;color:#888;text-align:center;margin-bottom:8px;letter-spacing:.1em}
+body[data-trainer="nagao"] .trainer-title{color:var(--gold-l)}
+.trainer-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trainer-btn{padding:18px 10px;border:1.5px solid var(--gold);border-radius:12px;background:#fafafa;cursor:pointer;text-align:center;transition:all .2s;font-family:inherit}
+.trainer-btn.selected-inada{background:linear-gradient(135deg,var(--red-bg),#fff);border-color:var(--red);box-shadow:0 2px 8px rgba(200,16,46,.25)}
+.trainer-btn.selected-nagao{background:linear-gradient(135deg,var(--navy),var(--navy2));border-color:var(--gold);color:var(--gold-l);box-shadow:0 2px 8px rgba(201,162,39,.3)}
+.trainer-name{font-size:15px;font-weight:900;color:#aaa}
+.trainer-sub{font-size:10px;color:#bbb;margin-top:2px}
+.trainer-btn.selected-inada .trainer-name{color:var(--red2)}
+.trainer-btn.selected-nagao .trainer-name{color:var(--gold)}
+.trainer-btn.selected-inada .trainer-sub{color:var(--red2)}
+.trainer-btn.selected-nagao .trainer-sub{color:var(--gold-l)}
 
-.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px}
-.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px}
+.form-content{opacity:.3;pointer-events:none;transition:opacity .3s}
+.form-content.active{opacity:1;pointer-events:auto}
 
-.mochimono-list{background:var(--red-bg);border-radius:10px;padding:14px 16px}
+.card{background:#fff;border:1.5px solid var(--red);border-radius:16px;padding:20px;margin-bottom:16px;transition:all .3s}
+body[data-trainer="nagao"] .card{background:var(--navy);border:1px solid var(--gold)}
+.card-title{font-size:11px;color:#fff;background:var(--red);letter-spacing:.1em;margin-bottom:16px;font-weight:900;display:inline-block;padding:5px 12px;border-radius:7px;transition:all .3s}
+body[data-trainer="nagao"] .card-title{color:var(--gold);background:none;padding:0;display:block}
+
+.mochimono-list{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
+body[data-trainer="nagao"] .mochimono-list{background:var(--navy2)}
 .mochimono-item{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:13px;color:#444;border-bottom:1px dashed var(--red-bg)}
+body[data-trainer="nagao"] .mochimono-item{color:var(--navy-text);border-bottom-color:#26355c}
 .mochimono-item:last-child{border-bottom:none}
 .mochimono-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--red2);flex-shrink:0}
+body[data-trainer="nagao"] .mochimono-item::before{background:var(--gold)}
 .mochimono-text{flex:1;line-height:1.5}
 .mochimono-note{font-size:10px;color:var(--red2);font-weight:700;margin-left:4px}
+body[data-trainer="nagao"] .mochimono-note{color:var(--gold)}
 
-.price-box{background:var(--red);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px}
+.price-box{background:var(--red);border-radius:10px;padding:16px;text-align:center;margin-bottom:12px;transition:background .3s}
+body[data-trainer="nagao"] .price-box{background:var(--navy2)}
 .price-label{font-size:11px;color:rgba(255,255,255,.85);margin-bottom:6px;letter-spacing:.08em}
-.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1}
+body[data-trainer="nagao"] .price-label{color:var(--gold-l)}
+.price-value{font-size:32px;color:#fff;font-weight:900;line-height:1;transition:color .3s}
+body[data-trainer="nagao"] .price-value{color:var(--gold)}
 .price-yen{font-size:18px;margin-right:2px}
 .price-sub{font-size:10px;color:rgba(255,255,255,.75);margin-top:4px}
 
-.payment-box{background:var(--red-bg);border-radius:10px;padding:14px 16px}
+.payment-box{background:var(--red-bg);border-radius:10px;padding:14px 16px;transition:background .3s}
+body[data-trainer="nagao"] .payment-box{background:var(--navy2)}
 .payment-title{font-size:10px;color:#888;font-weight:700;margin-bottom:10px;letter-spacing:.06em}
+body[data-trainer="nagao"] .payment-title{color:var(--gold-l)}
 .payment-grid{display:flex;flex-wrap:wrap;gap:6px}
-.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--red);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700}
+.payment-tag{display:inline-flex;align-items:center;gap:4px;padding:6px 10px;background:#fff;border:1px solid var(--red);border-radius:6px;font-size:11px;color:var(--red2);font-weight:700;transition:all .3s}
+body[data-trainer="nagao"] .payment-tag{background:var(--navy);color:var(--gold)}
 .payment-tag-icon{font-size:12px}
 
 .fg{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
 .fg label{font-size:10px;color:#888;font-weight:700}
-.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(200,16,46,.25);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none}
+body[data-trainer="nagao"] .fg label{color:var(--gold-l)}
+.fg input{font-size:14px;padding:10px 14px;border:1.5px solid rgba(200,16,46,.25);border-radius:10px;background:#fff;color:#222;font-family:inherit;width:100%;outline:none;-webkit-appearance:none;appearance:none;transition:all .3s}
+body[data-trainer="nagao"] .fg input{background:var(--navy2);border-color:var(--gold);color:var(--navy-text)}
 .fg input[type=date]{min-height:44px;display:block}
 .fg-note{font-size:10px;color:var(--red2);margin-top:4px;line-height:1.5}
+body[data-trainer="nagao"] .fg-note{color:var(--gold-l)}
 
 .choice-label{font-size:10px;color:#888;font-weight:700;margin-bottom:8px}
+body[data-trainer="nagao"] .choice-label{color:var(--gold-l)}
 
 .radio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .radio-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+body[data-trainer="nagao"] .radio-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .radio-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
 .check-grid{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
 .check-btn{padding:10px 14px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;text-align:left;transition:all .15s}
+body[data-trainer="nagao"] .check-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .check-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
 .time-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .time-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
+body[data-trainer="nagao"] .time-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .time-btn.selected{background:var(--btn-gradient);color:#fff;border-color:transparent}
 
-.selected-info{display:none;background:#fff;border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--red2);text-align:center;font-weight:700}
+.selected-info{display:none;background:#fff;border-radius:10px;padding:12px;margin-bottom:16px;font-size:13px;color:var(--red2);text-align:center;font-weight:700;transition:all .3s}
+body[data-trainer="nagao"] .selected-info{background:var(--navy2);color:var(--gold)}
 
 .reason-other-wrap{display:none;margin-top:8px}
 
-.kiyaku-box{background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;font-size:11px;color:#555;line-height:1.8}
+.kiyaku-box{background:#fff;border-radius:10px;padding:14px;margin-bottom:14px;font-size:11px;color:#555;line-height:1.8;transition:all .3s}
+body[data-trainer="nagao"] .kiyaku-box{background:var(--navy2);color:var(--navy-text)}
 .kiyaku-box strong{color:var(--red2);display:block;margin-bottom:6px}
+body[data-trainer="nagao"] .kiyaku-box strong{color:var(--gold)}
 
 .agree-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
 .agree-row input[type=checkbox]{width:20px;height:20px;accent-color:var(--red2);cursor:pointer;flex-shrink:0}
 .agree-row label{font-size:12px;color:#555;cursor:pointer}
+body[data-trainer="nagao"] .agree-row label{color:var(--navy-text)}
 
 .btn{width:100%;padding:14px;background:var(--btn-gradient);border:none;border-radius:14px;color:#fff;font-size:14px;font-weight:900;cursor:pointer;font-family:inherit;letter-spacing:.05em}
 .btn:disabled{opacity:.5;cursor:not-allowed}
@@ -83,6 +127,7 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 .loading{text-align:center;padding:16px;font-size:12px;color:#aaa;display:none}
 .error-msg{font-size:12px;color:var(--red);text-align:center;padding:12px;display:none}
 .note{font-size:10px;color:#aaa;text-align:center;margin-top:14px;line-height:1.6}
+body[data-trainer="nagao"] .note{color:var(--gold-l)}
 .line-btn{display:inline-flex;align-items:center;gap:6px;margin-top:12px;padding:10px 20px;background:#06C755;color:#fff;border-radius:22px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.05em}
 
 .success{display:none;text-align:center;padding:40px 20px}
@@ -100,19 +145,29 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 </div>
 <div class="body">
 <div id="form-area">
-<div class="title">パーソナルボクシング体験予約フォーム</div>
+<div class="title" id="form-title">パーソナルボクシング体験予約フォーム</div>
 
-<!-- 担当トレーナー：稲田トレーナー固定（体験受付は稲田のみ） -->
+<!-- STEP1: 担当トレーナー選択 -->
 <div class="trainer-select">
-<div class="trainer-step">担当トレーナー</div>
-<div class="trainer-name-fixed">稲田 トレーナー</div>
+<div class="trainer-step">STEP 1</div>
+<div class="trainer-title">担当トレーナーを選択してください</div>
+<div class="trainer-grid">
+<button type="button" class="trainer-btn" id="btn-inada" onclick="selectTrainer('inada')">
+<div class="trainer-name">稲田</div>
+<div class="trainer-sub">体験 40分</div>
+</button>
+<button type="button" class="trainer-btn" id="btn-nagao" onclick="selectTrainer('nagao')">
+<div class="trainer-name">長尾</div>
+<div class="trainer-sub">ゲスト参加 50分</div>
+</button>
+</div>
 </div>
 
 <div class="form-content" id="form-content">
 
 <!-- 0. 持ってくるもの -->
 <div class="card">
-<div class="card-title">体験当日に持ってくるもの</div>
+<div class="card-title">当日に持ってくるもの</div>
 <div class="mochimono-list">
 <div class="mochimono-item"><span class="mochimono-text">タオル</span></div>
 <div class="mochimono-item"><span class="mochimono-text">飲み物<span class="mochimono-note">（販売有り）</span></span></div>
@@ -121,11 +176,11 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 </div>
 </div>
 
-<!-- 0.5. 体験料金 -->
+<!-- 0.5. 料金 -->
 <div class="card">
-<div class="card-title">体験料金</div>
+<div class="card-title">料金</div>
 <div class="price-box">
-<div class="price-label">40分セッション</div>
+<div class="price-label" id="price-label">40分セッション</div>
 <div class="price-value"><span class="price-yen">¥</span><span id="price-value">3,300</span></div>
 <div class="price-sub">（税込）</div>
 </div>
@@ -148,7 +203,7 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 <div class="card-title">基本情報</div>
 <div class="fg">
 <label>お名前 *</label>
-<input type="text" id="name" placeholder="長尾 儀子">
+<input type="text" id="name" placeholder="山田 太郎">
 </div>
 <div class="fg">
 <label>電話番号 *</label>
@@ -221,19 +276,13 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 </div>
 </div>
 
-<!-- 6. 体験規約 -->
+<!-- 6. 利用規約 -->
 <div class="card">
-<div class="card-title">体験規約</div>
-<div class="kiyaku-box">
-<strong>▼ 体験利用規約</strong>
-■ 原則として体験は1度だけとなります。<br>
-■ 体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。<br>
-■ キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。<br>
-■ ペアでのご利用は体験も1回あたり¥500引きです。
-</div>
+<div class="card-title">利用規約</div>
+<div class="kiyaku-box" id="kiyaku-box"></div>
 <div class="agree-row">
 <input type="checkbox" id="agree">
-<label for="agree">上記の体験利用規約をすべて読み、内容に同意します</label>
+<label for="agree">上記の利用規約をすべて読み、内容に同意します</label>
 </div>
 <button type="button" class="btn" id="submit-btn" onclick="submitForm()">体験を予約する</button>
 </div>
@@ -252,7 +301,7 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 
 <div class="success" id="success-area">
 <div class="success-icon">🎉</div>
-<div class="success-msg">体験予約を受け付けました！</div>
+<div class="success-msg" id="success-msg">体験予約を受け付けました！</div>
 <div class="success-sub">ご登録のメールアドレスに<br>予約確認とキャンセルURLを送信しました。<br>ご確認ください。</div>
 <a href="javascript:history.back()" class="back-btn">トップに戻る</a>
 </div>
@@ -261,10 +310,32 @@ body{font-family:'Noto Serif JP','M PLUS Rounded 1c',serif;background:#fff;color
 <script>
 const GAS_URL='https://script.google.com/macros/s/AKfycbxb5Sl1UkHNcIXEl_phlLILFFrAyqzjlJK95FFiZeZCeYTHtYgoyby5lRcOEFDoqrX6og/exec';
 
-// 体験受付は稲田トレーナーのみ
-const selectedTrainer='inada';
-const TRAINER_LABEL={ inada:'稲田' };
-const PRICE=3300;
+// トレーナーごとの商品内容（HP・GAS側のCONFIG.TRAINER_PRODUCTと合わせること）
+const PRODUCTS = {
+  inada: {
+    label: '稲田', price: 3300, lessonMin: 40, type: '体験',
+    title: 'パーソナルボクシング体験予約フォーム',
+    priceLabel: '40分セッション',
+    terms: '<strong>▼ 利用規約</strong>'
+      + '■ 原則として体験は1度だけとなります。<br>'
+      + '■ 体験中に万が一、ケガや体調不良等が発生した場合は自己責任となります。<br>'
+      + '■ キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。<br>'
+      + '■ ペアでのご利用は体験も1回あたり¥500引きです。',
+    submitLabel: '体験を予約する',
+    successMsg: '体験予約を受け付けました！'
+  },
+  nagao: {
+    label: '長尾', price: 8800, lessonMin: 50, type: 'ゲスト参加',
+    title: 'パーソナルボクシング ゲスト参加申し込みフォーム',
+    priceLabel: '50分セッション',
+    terms: '<strong>▼ 利用規約</strong>'
+      + '■ ゲスト参加は1回限りとなります。<br>'
+      + '■ セッション中に万が一、ケガや体調不良等が発生した場合は自己責任となります。<br>'
+      + '■ キャンセルは予約日時の24時間前までにお願いします。24時間を過ぎる場合はご連絡ください。',
+    submitLabel: 'ゲスト参加を申し込む',
+    successMsg: 'ご予約を受け付けました！'
+  }
+};
 
 let holidays={};
 fetch('https://holidays-jp.github.io/api/v1/date.json')
@@ -272,6 +343,7 @@ fetch('https://holidays-jp.github.io/api/v1/date.json')
 .then(d=>{holidays=d;})
 .catch(()=>{});
 
+let selectedTrainer='';
 const selected={age:''};
 const checked={kikkake:[]};
 let reason='';
@@ -284,6 +356,30 @@ document.getElementById('date').setAttribute('min',tomorrow.toISOString().slice(
 document.getElementById('date').value=tomorrow.toISOString().slice(0,10);
 
 function formatYen(n){ return n.toLocaleString('ja-JP'); }
+
+function selectTrainer(trainer){
+selectedTrainer=trainer;
+const product=PRODUCTS[trainer];
+const body=document.body;
+const btnI=document.getElementById('btn-inada');
+const btnN=document.getElementById('btn-nagao');
+btnI.classList.remove('selected-inada','selected-nagao');
+btnN.classList.remove('selected-inada','selected-nagao');
+if(trainer==='nagao'){
+body.setAttribute('data-trainer','nagao');
+btnN.classList.add('selected-nagao');
+}else{
+body.removeAttribute('data-trainer');
+btnI.classList.add('selected-inada');
+}
+document.getElementById('form-title').textContent=product.title;
+document.getElementById('price-label').textContent=product.priceLabel;
+document.getElementById('price-value').textContent=formatYen(product.price);
+document.getElementById('kiyaku-box').innerHTML=product.terms;
+document.getElementById('submit-btn').textContent=product.submitLabel;
+document.getElementById('form-content').classList.add('active');
+if(document.getElementById('date').value) loadSlots();
+}
 
 function selectRadio(key,val,btn){
 selected[key]=val;
@@ -309,6 +405,7 @@ else{arr.push(val);btn.classList.add('selected');}
 
 let loadSlotsToken=0;
 async function loadSlots(){
+if(!selectedTrainer)return;
 const date=document.getElementById('date').value;
 if(!date)return;
 const myToken=++loadSlotsToken;
@@ -383,6 +480,8 @@ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 async function submitForm(){
+if(!selectedTrainer){alert('担当トレーナーを選択してください');return;}
+const product=PRODUCTS[selectedTrainer];
 const name=document.getElementById('name').value.trim();
 const phone=document.getElementById('phone').value.trim();
 const email=document.getElementById('email').value.trim();
@@ -396,7 +495,7 @@ if(checked.kikkake.length===0){alert('知ったキッカケを選択してくだ
 if(!reason){alert('選んでくれた理由を選択してください');return;}
 if(reason==='その他'&&!document.getElementById('reason-other').value.trim()){alert('その他の理由を入力してください');return;}
 if(!date||!selectedStart){alert('希望日と時間を選択してください');return;}
-if(!agree){alert('体験規約に同意してください');return;}
+if(!agree){alert('利用規約に同意してください');return;}
 const reasonFinal=(reason==='その他')?('その他：'+document.getElementById('reason-other').value.trim()):reason;
 const btn=document.getElementById('submit-btn');
 btn.disabled=true;btn.textContent='送信中...';
@@ -406,23 +505,24 @@ name,phone,email,address,
 age:selected.age,
 kikkake:checked.kikkake.join('・'),
 reason:reasonFinal,
-trainer:TRAINER_LABEL[selectedTrainer],
-price:PRICE,
+trainer:product.label,
+price:product.price,
 start:selectedStart,
 end:selectedEnd
 });
 try{
 await fetch(GAS_URL+'?'+params.toString(),{method:'GET',mode:'cors'});
 document.getElementById('form-area').style.display='none';
+document.getElementById('success-msg').textContent=product.successMsg;
 document.getElementById('success-area').style.display='block';
 }catch(err){
 document.getElementById('form-area').style.display='none';
+document.getElementById('success-msg').textContent=product.successMsg;
 document.getElementById('success-area').style.display='block';
 }
 }
 
-document.getElementById('price-value').textContent=formatYen(PRICE);
-if(document.getElementById('date').value) loadSlots();
+selectTrainer('inada');
 </script>
 </body>
 </html>
