@@ -79,7 +79,7 @@
   .trainer-card[data-trainer="nagao"]{border-top:5px solid var(--navy);}
   .trainer-card[data-trainer="inada"]{border-top:5px solid var(--gold);}
   .photo-placeholder{height:220px;background:#e9e7e2;display:flex;align-items:center;justify-content:center;color:#999;font-size:13px;}
-  .trainer-photo{height:220px;width:100%;object-fit:cover;display:block;}
+  .trainer-photo{height:280px;width:100%;object-fit:cover;object-position:top center;display:block;}
   .trainer-body{padding:20px;}
   .trainer-body h3{font-size:18px;margin-bottom:4px;}
   .trainer-body .role{font-size:12px;color:var(--accent);font-weight:700;margin-bottom:12px;}
@@ -90,8 +90,14 @@
   .credibility-line{text-align:center;font-size:13px;color:var(--navy);font-weight:700;margin:-10px 0 28px;}
   .credibility-line a{color:var(--navy);text-decoration:underline;}
 
-  .price-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eee;margin-bottom:18px;}
+  .price-card{background:#fff;border-radius:14px;padding:22px;border:1px solid #eee;border-top:4px solid #eee;margin-bottom:18px;}
   .price-card h4{font-size:16px;margin-bottom:12px;color:var(--navy);}
+  .price-card[data-trainer="inada"]{border-top-color:var(--red);}
+  .price-card[data-trainer="inada"] h4{color:var(--red);}
+  .price-card[data-trainer="inada"] table.price-table td:last-child{color:var(--red);}
+  .price-card[data-trainer="nagao"]{border-top-color:var(--navy);}
+  .price-card[data-trainer="nagao"] h4{color:var(--navy);}
+  .price-card[data-trainer="nagao"] table.price-table td:last-child{color:var(--navy);}
   table.price-table{width:100%;border-collapse:collapse;font-size:14px;}
   table.price-table td{padding:8px 4px;border-bottom:1px solid #eee;}
   table.price-table td:last-child{text-align:right;font-weight:700;}
@@ -192,7 +198,7 @@
 
 <section id="about">
   <div class="container">
-    <div class="section-title"><span>ABOUT</span>パーソナルボクシングについて</div>
+    <div class="section-title"><span>ABOUT</span>パーソナルボクシング<br>について</div>
     <div class="about-box">
       <p>技術向上に特化し、今の課題に徹底的にアプローチ。細かな指導をずっと見てもらえるから、上達のスピードが早くなります。実力もしっかり積み上がる、時間効率の良いパーソナルです。</p>
     </div>
@@ -245,7 +251,7 @@
   <div class="container">
     <div class="section-title"><span>PRICE</span>料金プラン</div>
 
-    <div class="price-card">
+    <div class="price-card" data-trainer="inada">
       <h4>体験レッスン｜稲田トレーナー</h4>
       <table class="price-table">
         <tr><td>稲田トレーナー（40分）</td><td>¥3,300</td></tr>
@@ -253,7 +259,7 @@
       <p class="note-list">体験を受け付けているのは稲田トレーナーのみです／ペア利用は1回あたり¥500引き／体験は原則1度限り</p>
     </div>
 
-    <div class="price-card">
+    <div class="price-card" data-trainer="inada">
       <h4>本予約 回数券｜稲田トレーナー</h4>
       <table class="price-table">
         <tr><td>3回セット（1回¥5,760）</td><td>¥17,280</td></tr>
@@ -266,7 +272,7 @@
       </p>
     </div>
 
-    <div class="price-card">
+    <div class="price-card" data-trainer="nagao">
       <h4>ゲスト参加（1回限り）｜長尾トレーナー</h4>
       <table class="price-table">
         <tr><td>ゲスト参加（50分・1回のみ）</td><td>¥8,800</td></tr>
