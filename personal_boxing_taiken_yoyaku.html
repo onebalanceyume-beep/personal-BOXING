@@ -113,6 +113,7 @@ body[data-trainer="nagao"] .check-btn{background:var(--navy2);border-color:var(-
 .time-btn{padding:10px 6px;border:1.5px solid var(--red);border-radius:10px;background:#fff;color:var(--red2);font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center;transition:all .15s}
 body[data-trainer="nagao"] .time-btn{background:var(--navy2);border-color:var(--gold);color:var(--gold-l)}
 .time-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent;transform:scale(1.08);box-shadow:0 4px 14px rgba(219,68,76,.45)}
+.time-btn.closed{background:#e6e6e6 !important;color:#9a9a9a !important;border-color:#e0e0e0 !important;cursor:not-allowed;font-size:11px;opacity:1;box-shadow:none;transform:none}
 .time-btn.full{background:var(--selected-gradient);color:#fff;border-color:transparent;cursor:not-allowed;font-size:12px;opacity:.85;box-shadow:none}
 body[data-trainer="nagao"] .radio-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent}
 body[data-trainer="nagao"] .check-btn.selected{background:var(--selected-gradient);color:#fff;border-color:transparent}
@@ -437,20 +438,6 @@ document.getElementById('selected-info').style.display='none';
 
 if(sel<=tod)return;
 
-if(sel.getDay()===0){
-errMsg.textContent='日曜日は定休日のため予約できません。別の日をお選びください。';
-errMsg.style.display='block';
-document.getElementById('date').value='';
-return;
-}
-
-if(holidays[date]){
-errMsg.textContent='祝日（'+holidays[date]+'）は定休日のため予約できません。別の日をお選びください。';
-errMsg.style.display='block';
-document.getElementById('date').value='';
-return;
-}
-
 loading.style.display='block';
 errMsg.style.display='none';
 try{
@@ -466,7 +453,12 @@ const btn=document.createElement('button');
 btn.className='time-btn';
 btn.type='button';
 
-if(slot.full){
+if(slot.closed){
+btn.textContent=slot.label+'\n定休日';
+btn.classList.add('closed');
+btn.style.whiteSpace='pre-line';
+btn.disabled=true;
+}else if(slot.full){
 btn.textContent=slot.label+'\n満';
 btn.classList.add('full');
 btn.style.whiteSpace='pre-line';
