@@ -3,78 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>ONE BALANCE BOXING｜パーソナルボクシング・キックボクササイズ（米子市）</title>
-<meta name="description" content="鳥取県米子市のパーソナルボクシング・キックボクササイズ。マンツーマン指導で未経験でも安心。">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<title>パーソナルボクシング｜ONE BALANCE BOXING（米子市）</title>
+<meta name="description" content="鳥取県米子市のパーソナルボクシング。初めての不安も、今の課題も、1対1でずっと見ます。体験40分3,300円・9:00〜22:00 WEB予約OK。">
 <link rel="apple-touch-icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
 <link rel="icon" href="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#16213e">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;700&family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+<meta name="apple-mobile-web-app-title" content="パーソナルボクシング">
+<meta name="theme-color" content="#0d0d0d">
 <style>
-  *{box-sizing:border-box;}
-  html,body{height:100%;}
-  body{
-    margin:0;font-family:'M PLUS Rounded 1c',sans-serif;
-    word-break:keep-all;overflow-wrap:break-word;touch-action:manipulation;
-    -webkit-text-size-adjust:100%;
-  }
-  .logo-bar{
-    text-align:center;padding:28px 20px 10px;
-  }
-  .logo-bar img{height:52px;margin:0 auto 10px;border-radius:8px;}
-  .logo-bar p{
-    font-family:'Noto Serif JP',serif;font-size:14px;letter-spacing:.1em;color:#222;margin:0;
-  }
-  .choice-wrap{
-    display:flex;flex-direction:column;min-height:calc(100vh - 110px);
-  }
-  @media (min-width:768px){
-    .choice-wrap{flex-direction:row;}
-  }
-  .choice{
-    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    text-decoration:none;padding:48px 24px;text-align:center;transition:filter .15s ease;
-  }
-  .choice:active{filter:brightness(0.95);}
-  .choice.men{background:#16213e;color:#fff;}
-  .choice.women{background:#f1c1c5;color:#3f2f1f;}
-  .choice .en{font-size:12px;letter-spacing:.3em;margin-bottom:10px;opacity:.85;}
-  .choice.men .en{color:#c9a227;}
-  .choice h2{
-    font-family:'Noto Serif JP',serif;font-size:26px;margin:0 0 14px;line-height:1.5;
-  }
-  .choice.women h2{font-family:'M PLUS Rounded 1c',sans-serif;}
-  .choice p{font-size:14px;line-height:1.9;max-width:320px;margin:0 0 28px;}
-  .choice .btn{
-    display:inline-block;padding:14px 34px;border-radius:26px;font-weight:700;font-size:14px;
-  }
-  .choice.men .btn{background:#C8102E;color:#fff;}
-  .choice.women .btn{background:#3f2f1f;color:#fff;}
+:root{--red:#DD0B1B;--gold:#C9A227;--black:#0d0d0d;--pad:clamp(20px,5vw,64px)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--black);color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,'Hiragino Sans','Noto Sans JP',sans-serif;touch-action:manipulation;overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2{margin:0;font-weight:700}
+.sec{padding:clamp(56px,9vw,120px) var(--pad)}
+.eyebrow{font-size:clamp(11px,1.2vw,14px);letter-spacing:4px;font-weight:700}
+.gold{color:var(--gold)}.red{color:var(--red)}
+h2.big{font-size:clamp(34px,6vw,64px);line-height:1.05;letter-spacing:-1px;margin:12px 0 clamp(32px,5vw,64px)}
+.white{background:#fff;color:#111}
+/* header */
+.hd{display:flex;align-items:center;justify-content:space-between;padding:0 var(--pad);height:64px;border-bottom:1px solid #2a2a2a;position:sticky;top:0;background:var(--black);z-index:10}
+.hd .logo{font-size:clamp(11px,1.4vw,16px);font-weight:700;letter-spacing:3px;color:var(--gold)}
+.hd nav{display:flex;align-items:center;gap:32px;font-size:13px;letter-spacing:3px;font-weight:700}
+.hd nav .btn-s{background:var(--red);padding:12px 24px}
+@media(max-width:760px){.hd nav a:not(.btn-s){display:none}.hd nav .btn-s{padding:10px 16px;font-size:12px;letter-spacing:2px}}
+/* hero */
+.hero{position:relative;min-height:clamp(560px,62vw,760px);overflow:hidden;display:flex;align-items:center}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 40%}
+.hero .shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.94) 0%,rgba(13,13,13,.72) 50%,rgba(13,13,13,.1) 100%)}
+.hero .in{position:relative;padding:48px var(--pad);display:flex;flex-direction:column;gap:clamp(14px,2vw,24px)}
+.tagr{align-self:flex-start;background:var(--red);padding:8px 16px;font-weight:700;font-size:clamp(14px,1.8vw,22px);letter-spacing:2px}
+.hero h1{font-size:clamp(54px,11.5vw,148px);line-height:.92;letter-spacing:-.03em}
+.hero .bar{width:96px;height:4px;background:var(--gold)}
+.hero .jp{font-size:clamp(20px,2.4vw,30px);font-weight:700}
+.hero p{margin:0;font-size:clamp(15px,1.7vw,20px);line-height:1.7;color:#e6e6e6}
+.cta{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:8px}
+.btn{display:inline-block;padding:20px 36px;font-size:clamp(14px,1.4vw,16px);font-weight:700;letter-spacing:3px;text-align:center}
+.btn.r{background:var(--red)}
+.btn.o{border:2px solid var(--gold);color:var(--gold);padding:18px 34px}
+.pill{display:inline-block;background:#fff;color:#111;border-radius:99px;padding:8px 18px;font-size:clamp(13px,1.4vw,16px);font-weight:700;align-self:flex-start}
+.pill b{color:var(--red)}
+.band{background:var(--gold);color:var(--black);padding:18px var(--pad);display:flex;gap:clamp(12px,4vw,48px);font-size:clamp(11px,1.2vw,14px);font-weight:700;letter-spacing:4px;justify-content:center;flex-wrap:wrap;text-align:center}
+/* concept */
+.two{display:flex;flex-wrap:wrap;gap:clamp(28px,5vw,64px);align-items:center}
+.two>*{flex:1 1 320px;min-width:0}
+.two img{width:100%;height:clamp(300px,45vw,560px);object-fit:cover}
+.concept h2{font-size:clamp(34px,5.4vw,64px);line-height:1.05;letter-spacing:-1px;margin:14px 0}
+.concept .lead{font-size:clamp(20px,2.4vw,26px);font-weight:700;margin-bottom:14px}
+.concept p{margin:0;font-size:clamp(15px,1.5vw,17px);line-height:1.9;color:#444}
+.rows{margin-top:20px}
+.row{display:flex;gap:20px;align-items:baseline;padding:16px 0;border-top:1px solid #ddd}
+.row:last-child{border-bottom:1px solid #ddd}
+.row span:first-child{font-size:13px;letter-spacing:3px;font-weight:700;width:96px;flex:none}
+.row span:last-child{font-size:15px;line-height:1.6}
+/* trainer */
+.tr-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px)}
+@media(max-width:760px){.tr-grid{grid-template-columns:1fr}}
+.tr{background:#161616}
+.tr img{width:100%;height:clamp(320px,36vw,420px);object-fit:cover;object-position:50% 20%}
+.tr .b{padding:28px 24px 36px;display:flex;flex-direction:column;gap:12px}
+.tr .k{font-size:12px;letter-spacing:4px;color:var(--gold);font-weight:700}
+.tr .n{font-size:clamp(24px,2.6vw,30px);font-weight:700}
+.tr p{margin:0;font-size:15px;line-height:1.8;color:#ccc}
+.tr .ach{font-size:13px;color:#aaa;border-top:1px solid #333;padding-top:14px;margin-top:6px;line-height:1.9}
+/* price */
+#price{background:#111;border-top:1px solid #2a2a2a}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media(max-width:900px){.pr-grid{grid-template-columns:1fr}}
+.pc{border:1px solid #3a3a3a;padding:36px 28px;display:flex;flex-direction:column;gap:14px}
+.pc.t{border:2px solid var(--red);background:#161616}
+.pc.s{border:2px solid var(--gold);background:linear-gradient(135deg,#2a2208 0%,#0d0d0d 70%)}
+.pc .k{font-size:13px;letter-spacing:4px;font-weight:700;color:var(--red)}
+.pc.s .k{color:var(--gold)}
+.pc .nm{font-size:18px;font-weight:700}
+.big-n{display:flex;align-items:baseline;gap:6px}
+.big-n small{font-size:24px;font-weight:700}
+.big-n span{font-size:clamp(56px,8vw,72px);font-weight:700;line-height:1}
+.pc .note{font-size:14px;line-height:1.8;color:#bbb}
+.tk{display:flex;justify-content:space-between;align-items:baseline;padding:12px 0;border-bottom:1px solid #333}
+.tk:last-of-type{border-bottom:0}
+.tk i{font-style:normal;font-size:15px}
+.tk b{font-size:34px}.tk b small{font-size:16px;margin-right:2px}
+/* gym */
+.gy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.gy img{width:100%;height:clamp(180px,26vw,320px);object-fit:cover}
+@media(max-width:600px){.gy{grid-template-columns:1fr}.gy img{height:240px}}
+/* book */
+#book{background:var(--red)}
+#book h2{font-size:clamp(60px,12vw,96px);line-height:.98;letter-spacing:-3px;margin:12px 0 40px}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-bottom:44px}
+@media(max-width:700px){.steps{grid-template-columns:1fr;gap:16px}}
+.steps div{border-top:3px solid #fff;padding-top:14px}
+.steps b{display:block;font-size:40px;line-height:1}
+.steps span{display:block;font-size:18px;font-weight:700;margin-top:8px}
+#book .btn.w{background:#fff;color:var(--red);padding:22px 48px;font-size:18px}
+#book .btn.l{border:2px solid #fff;padding:20px 44px;font-size:18px}
+.ft{padding:48px var(--pad);font-size:14px;line-height:1.9;color:#bbb}
+.ft b{color:var(--gold);letter-spacing:3px}
+.ft a{color:#ddd;text-decoration:underline}
+@media(max-width:600px){.btn{width:100%}}
 </style>
 </head>
 <body>
 
-<div class="logo-bar">
-  <img src="https://onebalanceyume-beep.github.io/onebalance-member/images/logo.jpg" alt="ONE BALANCE BOXING ロゴ">
-  <p>ONE BALANCE BOXING｜どちらのパーソナルを受けますか？</p>
-</div>
+<header class="hd">
+  <div class="logo">ONE BALANCE BOXING</div>
+  <nav><a href="#concept">CONCEPT</a><a href="#trainer">TRAINER</a><a href="#price">PRICE</a><a class="btn-s" href="#book">BOOK NOW</a></nav>
+</header>
 
-<div class="choice-wrap">
-  <a class="choice men" href="personal_boxing_men.html">
-    <p class="en">MEN'S PERSONAL</p>
-    <h2>パーソナル<br>ボクシング</h2>
-    <p>技術を、最短距離で。<br>課題に直結した指導で上達を最速化する、本気のパーソナル。</p>
-    <span class="btn">ボクシングページへ</span>
-  </a>
-  <a class="choice women" href="personal_boxing_women.html">
-    <p class="en">WOMEN'S PERSONAL</p>
-    <h2>パーソナル<br>キックボクササイズ</h2>
-    <p>なりたい自分に、いちばん近いエクササイズ。<br>きれいなフォームと引き締まったスタイルへ。</p>
-    <span class="btn">キックボクササイズページへ</span>
-  </a>
-</div>
+<section class="hero">
+  <img class="bg" src="pb_hero.jpg" alt="稲田トレーナーがミットを持ち、お客様のパンチを受けている様子">
+  <div class="shade"></div>
+  <div class="in">
+    <div class="tagr">ずっと見てほしい方へ</div>
+    <h1>PERSONAL<br>BOXING.</h1>
+    <div class="bar"></div>
+    <div class="jp">パーソナルボクシング</div>
+    <p>初めての不安も、今の課題も。<br>1対1で、ずっと見ます。</p>
+    <div class="pill">9:00〜22:00 <b>WEB予約OK</b></div>
+    <div class="cta">
+      <a class="btn r" href="personal_boxing_taiken_yoyaku.html">BOOK NOW / 体験予約</a>
+      <a class="btn o" href="#price">VIEW PRICE</a>
+    </div>
+  </div>
+</section>
+
+<div class="band"><span>1 ON 1</span><span>TECHNIQUE FIRST</span><span>YONAGO, TOTTORI</span><span>WEB予約 OK</span></div>
+
+<section id="concept" class="sec white concept">
+  <div class="two">
+    <div><img src="pb_concept.jpg" alt="お客様の肘の位置をトレーナーが直接直している様子"></div>
+    <div>
+      <div class="eyebrow red">01 — CONCEPT</div>
+      <h2>BUILT AROUND<br>YOUR WEAKNESS.</h2>
+      <div class="lead">今の課題に、徹底的に。</div>
+      <p>技術向上に特化したパーソナルです。細かな指導をずっと見てもらえるから、上達のスピードが変わります。初めての方も、うまくなくて大丈夫。今のあなたに合わせて見ます。</p>
+      <div class="rows">
+        <div class="row"><span>1 ON 1</span><span>完全マンツーマンで見る</span></div>
+        <div class="row"><span>FLEXIBLE</span><span>予定が空いていれば、ご予約いただけます</span></div>
+        <div class="row"><span>GYM</span><span>米子のジムで、直接指導します</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="trainer" class="sec">
+  <div class="eyebrow gold">02 — TRAINER</div>
+  <h2 class="big">MEET YOUR COACH.</h2>
+  <div class="tr-grid">
+    <div class="tr"><img src="trainer_inada.jpg" alt="稲田トレーナー">
+      <div class="b"><div class="k">STANDARD — TRIAL / TICKET</div><div class="n">稲田 トレーナー</div>
+      <p>とにかく優しく丁寧。初心者でも安心して始められ、「なぜそうするのか」を言葉で理解しながら学べます。</p>
+      <div class="ach">2012 全国高校総体 ライトウェルター級 出場<br>2013 全国高校総体 ライトウェルター級 出場<br>2013 全国高校総体 中国大会 ライトウェルター級 準優勝</div></div></div>
+    <div class="tr"><img src="trainer_nagao.jpg" alt="長尾トレーナー">
+      <div class="b"><div class="k">SPECIAL LECTURER</div><div class="n">長尾 トレーナー</div>
+      <p>スタイルも骨格も見極め、まず言語化して納得してから体に覚えさせる、コーチング型の指導です。</p>
+      <div class="ach">2005 全日本実業団ボクシング選手権 バンタム級 優勝<br>2006 全日本実業団ボクシング選手権 フェザー級 優勝＆MVP（2階級制覇）<br>2006 全日本社会人選手権 バンタム級 優勝<br>2007 全日本実業団ボクシング選手権 ライト級 優勝＆MVP（3階級制覇・大会初）</div></div></div>
+  </div>
+</section>
+
+<section id="price" class="sec">
+  <div class="eyebrow gold">03 — PRICE</div>
+  <h2 class="big">PRICE.</h2>
+  <div class="pr-grid">
+    <div class="pc"><div class="k">TRIAL</div><div class="nm">体験レッスン</div>
+      <div class="big-n"><small>¥</small><span>3,300</span></div>
+      <div class="note">稲田トレーナー・40分（税込）<br>原則1度限り</div></div>
+    <div class="pc t"><div class="k">TICKET</div><div class="nm">回数券｜稲田トレーナー</div>
+      <div><div class="tk"><i>3回</i><b><small>¥</small>17,280</b></div><div class="tk"><i>6回</i><b><small>¥</small>33,618</b></div><div class="tk"><i>12回</i><b><small>¥</small>63,996</b></div></div>
+      <div class="note">1回50分／有効期限は購入日から6ヶ月／ご本人限定</div></div>
+    <div class="pc s"><div class="k">SPECIAL LECTURER</div><div class="nm">特別講師｜長尾トレーナー</div>
+      <div class="big-n"><small>¥</small><span>8,800</span></div>
+      <div class="note">50分・1回ごとのお支払い<br>回数の制限なし／予定が空いていれば</div></div>
+  </div>
+</section>
+
+<section class="sec white">
+  <div class="eyebrow red">04 — GYM</div>
+  <h2 class="big">INSIDE THE GYM.</h2>
+  <div class="gy">
+    <img src="pb_gym1.jpg" alt="長尾トレーナーがミットを持って笑顔で受けている様子">
+    <img src="pb_gym2.jpg" alt="笑顔で腕の使い方を教えている様子">
+    <img src="pb_gym3.jpg" alt="長尾トレーナーがグローブの位置を直接指導している様子">
+  </div>
+</section>
+
+<section id="book" class="sec">
+  <div class="eyebrow">05 — BOOKING</div>
+  <h2>BOOK<br>NOW.</h2>
+  <div class="steps">
+    <div><b>01</b><span>WEBで空き枠を見る</span></div>
+    <div><b>02</b><span>日時を選んで予約</span></div>
+    <div><b>03</b><span>当日ご来店</span></div>
+  </div>
+  <div class="cta">
+    <a class="btn w" href="personal_boxing_taiken_yoyaku.html">体験を予約する</a>
+    <a class="btn l" href="https://lin.ee/NKUqyoV">公式LINEで相談</a>
+  </div>
+</section>
+
+<footer class="ft">
+  <div><b>ONE BALANCE BOXING GYM</b></div>
+  <div>ワンバランスボクシングジム／鳥取県米子市車尾6丁目8-59</div>
+  <div>TEL 0859-49-5275／パーソナルボクシング受付 9:00〜22:00</div>
+  <div style="margin-top:14px"><a href="personal_boxing_women.html">キックボクササイズ（パーソナル）をご希望の方はこちら</a></div>
+</footer>
 
 </body>
 </html>
